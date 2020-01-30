@@ -27,13 +27,13 @@ performance varies greatly for different videos, especially with the sofa shit.
 2 : b
 3 : b
 4 : good
-5 : good
+5 : good 
 
 for vid2, check the canny edge image. decide to tune canny edge or param2
 
 
 ISSUE 2: false positives: NEED better white red detection.
-ALREADY SO LENIENT. BUT DAMN
+ALREADY SO LENIENT. BUT DAMN 
 70 percent on real laser
 90 percent on false laser
 fuck.
@@ -47,18 +47,18 @@ fuck.
 '''
 parameters for cv2.HoughCircles
 input:
-image    8-bit, single-channel, grayscale input image.
-method    Detection method, see HoughModes. Currently, the only implemented method is HOUGH_GRADIENT
-dp    Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.
-minDist    Minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed.
+image	8-bit, single-channel, grayscale input image.
+method	Detection method, see HoughModes. Currently, the only implemented method is HOUGH_GRADIENT
+dp	Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.
+minDist	Minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed.
 
-param1    First method-specific parameter. In case of HOUGH_GRADIENT , it is the higher threshold of the two passed to the Canny edge detector (the lower one is twice smaller).
-param2    Second method-specific parameter. In case of HOUGH_GRADIENT , it is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first.
-minRadius    Minimum circle radius.
-maxRadius    Maximum circle radius. If <= 0, uses the maximum image dimension. If < 0, returns centers without finding the radius.
+param1	First method-specific parameter. In case of HOUGH_GRADIENT , it is the higher threshold of the two passed to the Canny edge detector (the lower one is twice smaller).
+param2	Second method-specific parameter. In case of HOUGH_GRADIENT , it is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first.
+minRadius	Minimum circle radius.
+maxRadius	Maximum circle radius. If <= 0, uses the maximum image dimension. If < 0, returns centers without finding the radius.
 
 output:
-circles    Output vector of found circles. Each vector is encoded as 3 or 4 element floating-point vector (x,y,radius) or (x,y,radius,votes) .
+circles	Output vector of found circles. Each vector is encoded as 3 or 4 element floating-point vector (x,y,radius) or (x,y,radius,votes) .
 
 '''
 
@@ -112,7 +112,7 @@ def detect_circle(frame): # Display the resulting frame, WITH THE LASER CIRCLED
     count = 0
     if circles is not None:
          ignore, count, ignore2 = circles.shape
-         #if count > 10: if too many adjust param1 for cann_edge and param2
+         #if count > 10: if too many adjust param1 for cann_edge and param2 
                 
          print("detected %s circle(s)" %count)
          total_circles += count
@@ -161,7 +161,7 @@ def draw_circles(frame, circles):
 
 
 def filter_red(frame, circles): #1920*1080*3
-    global no_laser
+    global no_laser       
     global red_detected
     global white_detected
     
@@ -173,9 +173,9 @@ def filter_red(frame, circles): #1920*1080*3
         for circle in circles[0, :]: #cirlce = (x, y ,radius)
             x = int(circle[0])
             y = int(circle[1])
-            r,g,b = frame[y,x]
+            r,g,b = frame[y,x] 
             #print(frame[y,x] )
-            white = (r > 200 and g > 200 and b > 200) #(r > 220 and g > 220 and b > 220)
+            white = (r > 200 and g > 200 and b > 200) #(r > 220 and g > 220 and b > 220) 
                 red = (r > 100 and g > 30 and b > 40) #(r > 120 and g > 40 and b > 60)
             #if white or red:
                 #return circle
@@ -195,7 +195,7 @@ def filter_red(frame, circles): #1920*1080*3
         '''
         #for debugging only
         coord = (x,y)
-        rgb = frame[y,x]
+        rgb = frame[y,x] 
         print("coord:" + str(coord) +  " rgb: " +  str(rgb) )
         '''
     else:
@@ -212,7 +212,7 @@ def canny_edge(frame, val): #output a grayscale image of edges, easier for cv2.H
     img_blur = cv2.blur(frame, (3,3))
     detected_edges = cv2.Canny(img_blur, low_threshold, low_threshold*ratio, kernel_size)
     mask = detected_edges != 0
-    dst = frame * (mask[:,:,None].astype(frame.dtype)) #numpy array
+    dst = frame * (mask[:,:,None].astype(frame.dtype)) #numpy array 
     #cv2.imshow('edges', dst)
     return dst
 
@@ -251,7 +251,7 @@ signal.signal(signal.SIGINT, signal_handler)
 cap = cv2.VideoCapture('/Users/audi/Desktop/x1/Link_Laser_Samples/laser_sample_1/video.mp4')
  
 # Check if camera opened successfully
-if (cap.isOpened()== False):
+if (cap.isOpened()== False): 
   print("Error opening video stream or file")
  
 # Read until video is completed
@@ -260,7 +260,7 @@ while(cap.isOpened()):
   # Capture frame-by-frame
   ret, frame = cap.read()
 
-  if ret == True:
+  if ret == True: 
     start_time = time.time()
 
     #original_frame = np.copy(frame)
@@ -283,7 +283,7 @@ while(cap.isOpened()):
     
     #DO SOME SUMMARY STATISTICS
     
-    #if len(detected_circles) == 0:
+    #if len(detected_circles) == 0: 
      #   no_circle += 1
         
         
