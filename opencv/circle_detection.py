@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Detecting lasers: Red circles with inner white fillings
-
+#TEST2
 @author: audi
 """
 from PIL import Image as im
