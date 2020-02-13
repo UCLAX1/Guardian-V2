@@ -1,36 +1,51 @@
 import RPi.GPIO as GPIO
-import math as m
+import math
 
 from RpiMotorLib import RpiMotorLib
 
-GpioPins = [18, 23, 24, 25]
-GpioPins2 = [17, 27, 22, 10]
+x_pins = [18, 23, 24, 25]
+y_pins = [17, 27, 22, 10]
 
-mymotortest = RpiMotorLib.BYJMotor("MyMotorOne", "28BYJ")
-mymotortest2 = RpiMotorLib.BYJMotor("MyMotorTwo", "28BYJ")
+x_motor = RpiMotorLib.BYJMotor("MyMotorOne", "28BYJ")
+y_motor = RpiMotorLib.BYJMotor("MyMotorTwo", "28BYJ")
 
 delay = 0.001
-r = 1
-rad = 10;
-x = [m.cos(i/m.pi) for i in range(20)]
 
+def drawline(x_final,y_final):
+	#x_final = int(x_final+0.5)
+	#y_final = int(y_final+0.5)
+	x_final = round(x_final)
+	y_final = round(y_final)
 
-#while True:
-for i in range(dis):
-	mymotortest.motor_run(GpioPins , delay, r, True, False, "half", 0.0)
-	mymotortest2.motor_run(GpioPins2, delay, r, True, False, "half", 0.0) 
-#	mymotortest.motor_run(GpioPins , delay, r, False, False, "half", 0.05)
-#	mymotortest2.motor_run(GpioPins2 , delay, r, False, False, "half", 0.05)
-for i in range(dis):
-	mymotortest.motor_run(GpioPins , delay, r, True, False, "half", 0.0)
-	mymotortest2.motor_run(GpioPins2, delay, r, False, False, "half", 0.0) 
-for i in range(dis):
-	mymotortest.motor_run(GpioPins , delay, r, False, False, "half", 0.0)
-	mymotortest2.motor_run(GpioPins2, delay, r, False, False, "half", 0.0) 
-for i in range(dis):
-	mymotortest.motor_run(GpioPins , delay, r, False, False, "half", 0.0)
-	mymotortest2.motor_run(GpioPins2, delay, r, True, False, "half", 0.0) 
+	big =  max(abs(x_final),abs(y_final))
+	small = min(abs(x_final), abs(y_final))
+	x_big = abs(x_final) > abs(y_final)
 
+	x_dir = x_final > 0
+	y_dir = y_final > 0
 
+	m = small / big
+	small_prev = 0
+	for i in range(0, abs(big+1)):
+		j = int(m*i+0.5)
+		if (small_prev != j):
+			if (x_big):
+				y_motor.motor_run(y_pins, delay, 1, y_dir, False, "half", 0.0)
+
+			else:
+				x_motor.motor_run(x_pins, delay, 1, not(x_dir), False, "half", 0.0)
+
+		if (x_big): 
+			x_motor.motor_run(x_pins, delay, 1, not(x_dir), False, "half", 0.0)
+
+		else:
+			y_motor.motor_run(y_pins, delay, 1, y_dir, False, "half", 0.0)
+		small_prev = j
+
+x = 5
+
+for i in range(0,5):
+	for a in range(0,360,20):
+		drawline(x*math.cos(math.radians(a)),x*math.sin(math.radians(a)))
 
 GPIO.cleanup()
