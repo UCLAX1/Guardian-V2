@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Tue Feb 25 15:01:34 2020
+
+@author: audi
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Detecting lasers: Red circles with inner white fillings
 #ADDED LINE FOR TEST
 @author: audi
@@ -16,6 +24,10 @@ import math
 
 #img = cv.imread('BLAH.png') #
 
+#make a function: input image: output x,y
+#check prev laser if it moved too much, if so, invalid. return (-1,-1)
+
+
 '''
 NEXT STEP: since filter red with min dist is prob optimal now, problem really is with circle detection.
 time per image
@@ -29,13 +41,13 @@ performance varies greatly for different videos, especially with the sofa shit.
 2 : b
 3 : b
 4 : good
-5 : good
+5 : good 
 
 for vid2, check the canny edge image. decide to tune canny edge or param2
 
 
 ISSUE 2: false positives: NEED better white red detection.
-ALREADY SO LENIENT. BUT DAMN
+ALREADY SO LENIENT. BUT DAMN 
 70 percent on real laser
 90 percent on false laser
 fuck.
@@ -49,18 +61,18 @@ fuck.
 '''
 parameters for cv2.HoughCircles
 input:
-image    8-bit, single-channel, grayscale input image.
-method    Detection method, see HoughModes. Currently, the only implemented method is HOUGH_GRADIENT
-dp    Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.
-minDist    Minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed.
+image	8-bit, single-channel, grayscale input image.
+method	Detection method, see HoughModes. Currently, the only implemented method is HOUGH_GRADIENT
+dp	Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.
+minDist	Minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed.
 
-param1    First method-specific parameter. In case of HOUGH_GRADIENT , it is the higher threshold of the two passed to the Canny edge detector (the lower one is twice smaller).
-param2    Second method-specific parameter. In case of HOUGH_GRADIENT , it is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first.
-minRadius    Minimum circle radius.
-maxRadius    Maximum circle radius. If <= 0, uses the maximum image dimension. If < 0, returns centers without finding the radius.
+param1	First method-specific parameter. In case of HOUGH_GRADIENT , it is the higher threshold of the two passed to the Canny edge detector (the lower one is twice smaller).
+param2	Second method-specific parameter. In case of HOUGH_GRADIENT , it is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first.
+minRadius	Minimum circle radius.
+maxRadius	Maximum circle radius. If <= 0, uses the maximum image dimension. If < 0, returns centers without finding the radius.
 
 output:
-circles    Output vector of found circles. Each vector is encoded as 3 or 4 element floating-point vector (x,y,radius) or (x,y,radius,votes) .
+circles	Output vector of found circles. Each vector is encoded as 3 or 4 element floating-point vector (x,y,radius) or (x,y,radius,votes) .
 
 '''
 
@@ -93,6 +105,13 @@ circle_detection = 0 #percent of time actually detected a circle
 laser_detection = 0 #percentage of time detected a laser  given a circle
 avg_time = 0
 
+#USE THIS FUNCTION TO REPLACE MAIN: input a string of file path to image.
+def master_func(path_to_image): #input an image, returns and prints the detected coordinate. Returns empty list if none found.
+    frame = cv2.imread(path_to_image)
+    detected_circles = detect_circle(frame)
+    red_circle = filter_red(frame, detected_circles)
+    print(red_circle)
+    return red_circle
 
 
 def detect_circle(frame): # Display the resulting frame, WITH THE LASER CIRCLED
@@ -114,9 +133,9 @@ def detect_circle(frame): # Display the resulting frame, WITH THE LASER CIRCLED
     count = 0
     if circles is not None:
          ignore, count, ignore2 = circles.shape
-         #if count > 10: if too many adjust param1 for cann_edge and param2
+         #if count > 10: if too many adjust param1 for cann_edge and param2 
                 
-         print("detected %s circle(s)" %count)
+         #print("detected %s circle(s)" %count)
          total_circles += count
 
          
@@ -175,10 +194,10 @@ def take_third(l):
     return l[2]
 
 hsv_list = []
-#min_distance
+#min_distance 
 
 def filter_red(frame, circles): #1920*1080*3
-    global no_laser
+    global no_laser       
     global red_detected
     global white_detected
     global hsv_list
@@ -195,18 +214,18 @@ def filter_red(frame, circles): #1920*1080*3
         for circle in circles[0, :]: #cirlce = (x, y ,radius)
             x = int(circle[0])
             y = int(circle[1])
-            r,g,b = frame[y,x]
+            r,g,b = frame[y,x] 
             
     
         
-            rgb = frame[y,x]
+            rgb = frame[y,x] 
             rgb_pixel = rgb.reshape((1,1,3))
             hsv = cv2.cvtColor(rgb_pixel, cv2.COLOR_BGR2HSV)
             h = hsv[0,0,0]
             s = hsv[0,0,1]
             v = hsv[0,0,2]
             
-            red = (h < 200) and (s < 110) and (v>100)
+            red = (h < 200) and (s < 110) and (v>100) 
             if red:
                 red_detected+=1
                 squares = (h-81)**2 + (s-30)**2 + (v-250)**2
@@ -224,23 +243,23 @@ def filter_red(frame, circles): #1920*1080*3
             no_laser += 1
         
         coord = result[0:2]
-        print(coord)
+        #print(coord)
         return result
                     
         #n = len(red_circles)
-        #red_circles = np.array(red_circles).reshape(1,n,3)
+        #red_circles = np.array(red_circles).reshape(1,n,3)       
         #return red_circles
           
             #hsv range:  vide 1 first 84 frames result
             #h: 0-200 (0-170) mean: 81, median 90
             #s: 0-110 (0-85) mean: 10 median: 5. 36?
-            #v: 120-255 (129-255) mean: 250, median 255
+            #v: 120-255 (129-255) mean: 250, median 255 
     else:
         print("Skipping filtering because function detect_cirlces detected no circles")
         #print(np.asarray([]))
         return np.asarray([])
     '''
-    white = (r > 200 and g > 200 and b > 200) #(r > 220 and g > 220 and b > 220)
+    white = (r > 200 and g > 200 and b > 200) #(r > 220 and g > 220 and b > 220) 
     red = (r > 100 and g > 30 and b > 40) #(r > 120 and g > 40 and b > 60)
     if white:
         white_detected+=1
@@ -254,14 +273,14 @@ def filter_red(frame, circles): #1920*1080*3
         return circle
 
 
-    '''
+    '''    
     
     
 
     '''
     #for debugging only
     coord = (x,y)
-    rgb = frame[y,x]
+    rgb = frame[y,x] 
     print("coord:" + str(coord) +  " rgb: " +  str(rgb) )
     '''
 
@@ -273,18 +292,18 @@ def canny_edge(frame, val): #output a grayscale image of edges, easier for cv2.H
     img_blur = cv2.blur(frame, (3,3)) #3,3
     detected_edges = cv2.Canny(img_blur, low_threshold, low_threshold*ratio, kernel_size)
     mask = detected_edges != 0
-    dst = frame * (mask[:,:,None].astype(frame.dtype)) #numpy array
+    dst = frame * (mask[:,:,None].astype(frame.dtype)) #numpy array 
     #cv2.imshow('edges', dst)
     return dst
 
 '''
 canny edge argument:
     
-image    8-bit input image.
-edges    output edge map; single channels 8-bit image, which has the same size as image .
-threshold1    first threshold for the hysteresis procedure.
-threshold2    second threshold for the hysteresis procedure.
-apertureSize    aperture size for the Sobel operator.
+image	8-bit input image.
+edges	output edge map; single channels 8-bit image, which has the same size as image .
+threshold1	first threshold for the hysteresis procedure.
+threshold2	second threshold for the hysteresis procedure.
+apertureSize	aperture size for the Sobel operator.
 
 '''
 
@@ -374,7 +393,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 
 # Check if camera opened successfully
-#if (cap.isOpened()== False):
+#if (cap.isOpened()== False): 
  # print("Error opening video stream or file")
  
 # Read until video is completed
@@ -382,24 +401,28 @@ signal.signal(signal.SIGINT, signal_handler)
 #while(cap.isOpened()):
   # Capture frame-by-frame
   
-  
+
+
+
+    
 frame_index = 1
 
 while (True):
-    frame_str = "video_frame_" + str(frame_index) + ".jpg"
-    frame = cv2.imread('/Users/audi/Desktop/x1/Link_Laser_Samples/laser_sample_1/rgb_frames/' + frame_str)
+    frame_str = '/Users/audi/Desktop/x1/Link_Laser_Samples/laser_sample_1/rgb_frames/' +"video_frame_" + str(frame_index) + ".jpg"
+    frame = cv2.imread(frame_str)
   
     if frame is None:
         break
   #ret, frame = cap.read()
 
-  #if ret == True:
+  #if ret == True: 
     start_time = time.time()
 
     #original_frame = np.copy(frame)
     detected_circles = detect_circle(frame)
     #print(detected_circles)
-    edges = canny_edge(frame, 30)
+    
+    #edges = canny_edge(frame, 30)
     #draw_circles(edges, detected_circles) #will modify frame to show the circles
     
     
@@ -417,14 +440,14 @@ while (True):
     
     #DO SOME SUMMARY STATISTICS
     
-    #if len(detected_circles) == 0:
+    #if len(detected_circles) == 0: 
      #   no_circle += 1
         
         
     frames += 1
     frame_index +=1
     
-    
+   
     
     
     # Press Q on keyboard to  exit
