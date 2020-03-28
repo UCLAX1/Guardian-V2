@@ -9,8 +9,8 @@
         align-items: center;
       }
       body {
-        width: 50%;
-        height: 50%;
+        width: 30%;
+        height: 90%;
         margin: auto;
       }
       .display {
@@ -24,6 +24,15 @@
         height: 100%;
         grid-area: 1 / 1 / 2 / 2;
       }
+      .control_panel {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: 40px 40px 40px 100px 1fr 170px;
+        margin-right: -5px
+      }
+      #data {
+        text-align: left;
+      }
     </style>
   </head>
 
@@ -35,7 +44,9 @@
         <input type="button" value="fetch" onclick="fetch_new_frame()">
         <input type="button" value="auto" onclick="myAuto = setInterval(fetch_new_frame, 50);">
         <input type="button" value="stop" onclick="clearInterval(myAuto);">
-        <p1>update: 0</p1>
+        <p1 id=update>update: 0</p1>
+        <div></div>
+        <p1 id=data>lazer: 0.00, 0.00, 0.00</p1>
     </div>
   </body>
 
@@ -50,14 +61,22 @@
       pastImg = currentImg;
       document.querySelector('.display').innerHTML = '<img src=\''+pastImg+'\'>';
 
+      //fetch image
       fetch('image.jpg')
         .then(response => response.blob())
         .then(images => {
             // once you fetch new one display that one
             currentImg = URL.createObjectURL(images)
             document.querySelector('.display').innerHTML = '<img src=\''+pastImg+'\'>'+'<img src=\''+currentImg+'\'>';
-            document.querySelector('p1').innerHTML = 'update: ' + counter; counter += 1;
+            document.querySelector('#update').innerHTML = 'update: ' + counter; counter += 1;
+        });
+
+      //fetch data
+      fetch('data.txt').then(function(response){
+        response.text().then(function(text){
+          document.querySelector('#data').innerHTML = 'lazer: ' + text;
         })
+      });
     }
   </script>
 </html>
