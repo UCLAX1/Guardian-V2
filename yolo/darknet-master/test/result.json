@@ -1,0 +1,8 @@
+[
+{
+ "frame_id":1, 
+ "filename":"./data/obj/video_frame_138.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"link", "relative_coordinates":{"center_x":0.677494, "center_y":0.351721, "width":0.546378, "height":0.619651}, "confidence":0.997139}
+ ] 
+}
