@@ -10,7 +10,7 @@ mymotortest2 = RpiMotorLib.BYJMotor("MyMotorTwo", "28BYJ")
 
 delay = 0.001
 r = 1
-dis = 10;
+dis = 5;
 
 #while True:
 for i in range(dis):

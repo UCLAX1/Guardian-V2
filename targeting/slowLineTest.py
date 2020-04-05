@@ -14,7 +14,7 @@ y_pins = [17, 27, 22, 4]
 x_motor = RpiMotorLib.BYJMotor("MyMotorOne", "28BYJ")
 y_motor = RpiMotorLib.BYJMotor("MyMotorTwo", "28BYJ")
 
-delay = 0.001
+delay = 0.1
 
 #led = LED(14)
 #led.on()
@@ -23,8 +23,6 @@ GPIO.setup(14,GPIO.OUT)
 GPIO.output(14,True)
 
 def drawline(x_final,y_final):
-	#x_final = int(x_final+0.5)
-	#y_final = int(y_final+0.5)
 	x_final = round(x_final)
 	y_final = round(y_final)
 
@@ -55,8 +53,9 @@ def drawline(x_final,y_final):
 
 x = 10
 
-for i in range(0,5):
-	for a in range(0,360,20):
-		drawline(x*math.cos(math.radians(a)),x*math.sin(math.radians(a)))
+drawline(x,x)
+drawline(-x,x)
+drawline(-x,-x)
+#drawline(x,-x)
 
 GPIO.cleanup()
