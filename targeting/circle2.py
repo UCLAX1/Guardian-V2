@@ -23,8 +23,6 @@ GPIO.setup(14,GPIO.OUT)
 GPIO.output(14,True)
 
 def drawline(x_final,y_final):
-	#x_final = int(x_final+0.5)
-	#y_final = int(y_final+0.5)
 	x_final = round(x_final)
 	y_final = round(y_final)
 
@@ -53,10 +51,11 @@ def drawline(x_final,y_final):
 			y_motor.motor_run(y_pins, delay, 1, y_dir, False, "half", 0.0)
 		small_prev = j
 
-x = 10
+x = 5
 
 for i in range(0,5):
 	for a in range(0,360,20):
-		drawline(x*math.cos(math.radians(a)),x*math.sin(math.radians(a)))
+#		drawline(x*math.cos(math.radians(a)),x*math.sin(math.radians(a)))
+		drawline(x*math.sin(math.radians(a)),0.5)
 
 GPIO.cleanup()

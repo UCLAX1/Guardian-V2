@@ -9,7 +9,7 @@ GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 
 x_pins = [18, 23, 24, 25]
-y_pins = [17, 27, 22, 4]
+y_pins = [17, 27, 22, 10]
 
 x_motor = RpiMotorLib.BYJMotor("MyMotorOne", "28BYJ")
 y_motor = RpiMotorLib.BYJMotor("MyMotorTwo", "28BYJ")
@@ -53,10 +53,31 @@ def drawline(x_final,y_final):
 			y_motor.motor_run(y_pins, delay, 1, y_dir, False, "half", 0.0)
 		small_prev = j
 
-x = 10
+x = 4
 
-for i in range(0,5):
+for i in range(0,2):
 	for a in range(0,360,20):
 		drawline(x*math.cos(math.radians(a)),x*math.sin(math.radians(a)))
+	for a in range(0,360,20):
+		drawline(x*math.cos(math.radians(-a)),x*math.sin(math.radians(-a)))
+
+x = 30
+
+for i in range(30,100,30):
+	for a in range(0,360,i):
+		drawline(x*math.cos(math.radians(a)),x*math.sin(math.radians(a)))
+		drawline(-x*math.cos(math.radians(a)),-x*math.sin(math.radians(a)))
+
+drawline(0,-15)
+drawline(15,0)
+for i in range(0,5):
+	drawline(0,30)
+	drawline(-30,0)
+	drawline(0,-30)
+	drawline(30,0)
+
+
+drawline(0,15)
+drawline(-15,0)
 
 GPIO.cleanup()
