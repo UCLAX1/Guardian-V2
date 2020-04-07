@@ -1,4 +1,4 @@
-from darknet import performDetect
+from darknet_mac import detect
 import argparse
 import cv2
 import math
@@ -9,13 +9,18 @@ import time
 
 def linkDetect(imagePath):
     image = cv2.imread(imagePath)
-    
+    '''
     yolo_result = performDetect(image, configPath = "./cfg/yolo-link.cfg",
                                     weightPath = "./weights/yolo-link_final.weights",
                                     metaPath = "./data/link.data",
                                     showImage = False,
                                     makeImageOnly = False, initOnly = False)
-        
+    '''
+
+    yolo_result = detect(net = "./weights/yolo-link_final.weights",
+                         meta = "./data/link.data",
+                         image = image)
+
     coords = [-1, -1]
 
     highestConfidence = 0.0
