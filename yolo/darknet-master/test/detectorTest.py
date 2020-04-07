@@ -19,7 +19,8 @@ def detectDistance(x, y, w, h):
     dist = (link[0]/2) / math.tan(angular_width/2)
     angle = (x - (imres[0]/2)) * FOV[0] / imres[0]
 
-    # cut to two decimal places
+    dist = '%.2f'%(dist)
+    angle = '%.2f'%(angle)
     return [dist, angle]
 
 def doDetect():
