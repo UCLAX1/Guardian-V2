@@ -1,5 +1,5 @@
 from gpiozero import MCP3008
-import time
+import time as t
 import RPi.GPIO as GPIO
 import numpy as np
 import math
@@ -12,6 +12,7 @@ GPIO.setmode(GPIO.BCM)
 
 time = 0.00075
 scale = 0.2
+tolerance = 0.001
 
 x_pins = [18, 23, 24, 25]
 y_pins = [17, 27, 22, 4]
@@ -42,13 +43,13 @@ nSteps = range(0, 2)
 def findDirection(difference):
     #positive difference means go negative direction
 	if (difference > 0):
-		return 2
+		return 1
     #negative difference means go positive direction
 	elif (difference < 0):
-        return 1
+		return 2
     #no difference means don't move
-    else:
-        return 0
+	else:
+		return 0
 
 def takeStep(motor, direction, seqStep):
 	if (motor == 1):
@@ -67,7 +68,7 @@ def takeStep(motor, direction, seqStep):
 				GPIO.output(xpin, True)
 			else:
 				GPIO.output(xpin, False)
-	sleep(time)
+	t.sleep(time)
 
     # move in the positive direction
 	if(direction == 1):
@@ -77,36 +78,36 @@ def takeStep(motor, direction, seqStep):
 			return seqStep + 1
     
     # move in the negative direction
-	elif:
+	elif(direction == 2):
 		if (seqStep == 0):
 			return 7
 		else:
 			return seqStep - 1
 
     # if direction = 0, then don't move that motor
-    else:
-        pass
+	else:
+		pass
 
 
 def main():
     # right now we're only moving the x motor, will add y motor once this works
 
     # CHANGE THESE POTENTIOMETER VALUES TO GO TOWARDS THAT VALUE
-    xPotGoal = .5
+	xPotGoal = .5
     #yPotVal = .5
 
     # keeps track of where the x motor is in its stepper sequence
-    seqStepX = 0
+	seqStepX = 0
 
     # current value - goal value
-    xDiff = xPot.value - xPotGoal
+	xDiff = xPot.value - xPotGoal
 
         # +/- .005 is the tolerance for now, can be changed to better fit the potentiometers
-        while (xDiff < .005 and xDiff > -.005):
-            seqStepX = takeStep(2, findDirection(xDiff), seqStepX)
-            xDiff = xPot.value - xPotGoal
+	while (xDiff > tolerance or xDiff < -tolerance):
+		seqStepX = takeStep(2, findDirection(xDiff), seqStepX)
+		xDiff = xPot.value - xPotGoal
 
-        print("x Pot Goal: ",xPotGoal,'\n', "current x Pot value: ",xPot.value)
+	print("x Pot Goal: ",xPotGoal,'\n', "current x Pot value: ",xPot.value)
 
 if __name__ == "__main__":
 	main()

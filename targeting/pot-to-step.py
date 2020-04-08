@@ -1,5 +1,5 @@
 from gpiozero import MCP3008
-import time
+import time as t
 import RPi.GPIO as GPIO
 import numpy as np
 import math
@@ -45,10 +45,10 @@ def findDirection(difference):
 		return 2
     #negative difference means go positive direction
 	elif (difference < 0):
-        return 1
+		return 1
     #no difference means don't move
-    else:
-        return 0
+	else:
+		return 0
 
 def takeStep(motor, direction, seqStep):
 	if (motor == 1):
@@ -67,7 +67,7 @@ def takeStep(motor, direction, seqStep):
 				GPIO.output(xpin, True)
 			else:
 				GPIO.output(xpin, False)
-	sleep(time)
+	t.sleep(time)
 
     # move in the positive direction
 	if(direction == 1):
@@ -77,15 +77,15 @@ def takeStep(motor, direction, seqStep):
 			return seqStep + 1
     
     # move in the negative direction
-	elif:
+	elif(direction == 2):
 		if (seqStep == 0):
 			return 7
 		else:
 			return seqStep - 1
 
     # if direction = 0, then don't move that motor
-    else:
-        pass
+	else:
+		pass
 
 
 def main():
@@ -93,15 +93,16 @@ def main():
     print("Current pot value for x motor: ", xPotValue, '\n')
 
     xSeqStep = 0
-    xSeqStep = takeStep(2, 1, xSeqStep)
-
-    xPotValue = xPot.value
-    print("Moved 1 step in positive direction, new x pot value: ",xPotValue, '\n')
+    for i in range(0,50):
+        xSeqStep = takeStep(2, 1, xSeqStep)
+        xPotValue = xPot.value
+        print("Moved 1 step in positive direction, new x pot value: ",xPotValue, '\n')
 
     # moved back to original position
-    xSeqStep = takeStep(2,2,xSeqStep)
-    xPotValue = xPot.value
-    print("Moved x motor back to original position: ", xPotValue, '\n')
+    for i in range(0,50):
+        xSeqStep = takeStep(2,2,xSeqStep)
+        xPotValue = xPot.value
+        print("Moved x motor back to original position: ", xPotValue, '\n')
 
     n = input("Number of steps to take (pls put an int): ")
     n = int(n)
