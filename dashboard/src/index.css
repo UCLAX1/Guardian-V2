@@ -11,6 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.parent{
-  position:relative;
+.dashboard{
+  position:absolute;
+  background-color: #b8e7f4;
+  /*the following is two is actually what made the div cover the whole screen*/
+  width: 100%;
+  height: 100%;
+
 }
