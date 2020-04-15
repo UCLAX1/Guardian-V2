@@ -7,6 +7,7 @@ import sys
 
 xPot = MCP3008(channel = 1)
 yPot = MCP3008(channel = 2)
+
 GPIO.setwarnings(False)
 GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
@@ -89,65 +90,41 @@ def takeStep(motor, direction, seqStep):
 	else:
 		pass
 
-def prompt():
-	while True:
-		x = input("Please enter goal pot value (between 0 and 1): ")
-		if (x == "X" or x == "x"):
-			return "quit"
-
-		try:
-			value = float(x)
-			if (value < 0 or value > 1):
-				print("Invalid input.")
-			else:
-				return value
-
-		except ValueError:
-			print("Invalid input.")
-
-def inputPotGoal():
-	# keeps track of where the x motor is in its stepper sequence
-	seqStepX = 0
-	seqStepY = 0
-
-	while True:
-		print("== X Motor Input ==")
-		xPotGoal = prompt()
-		if (xPotGoal == "quit"):
-			return
-
-		print("== Y Motor Input ==")
-		yPotGoal = prompt()
-		if (yPotGoal == "quit"):
-			return
-
-		print("\nMoving to pot value (", xPotGoal, ",", yPotGoal, ") ...")
-
-		# Move until pot value is within tolerance of goal value
-		xDiff = xPot.value - xPotGoal
-		yDiff = yPot.value - yPotGoal
-
-
-		while ((xDiff > tolerance or xDiff < -tolerance) or (yDiff > tolerance or yDiff < -tolerance)):
-			#checks if x value is within bounds
-			if (xDiff < tolerance or xDiff > -tolerance):
-				seqStepX = takeStep(2, findDirection(xDiff), seqStepX)
-
-			#checks if y value is within bounds
-			if(yDiff < tolerance or yDiff > -tolerance):
-				seqStepY = takeStep(1, findDirection(yDiff), seqStepY)
-
-			#update the difference between where we are and where we want to go
-			xDiff = xPot.value - xPotGoal
-			yDiff = yPot.value - yPotGoal
-
-		print("Arrived at pot value (", xPot.value, ",",  yPot.value, ")\n")
-
-		# pause before allowing user input again
-		t.sleep(2)
-
 def main():
-	inputPotGoal()
+    # step/pot
+    ratio = 4076/1024
 
-if __name__ == "__main__":
-	main()
+    print("Current xPot: ",xPot.value, "\nCurrent yPot: ", yPot.value)
+    xGoal = input("What is your target xPot value? ")
+    yGoal = input("What is your target yPot value? ")
+
+    xDiff = xGoal - xPot.value
+    yDiff = yGoal - yPot.value
+
+    big = max(abs(xDiff), abs(yDiff))
+    small = min(abs(xDiff), abs(yDiff))
+
+    # pot/pot * step/pot * [pot] = steps
+    m = big/small * ratio
+    small_prev = 0
+
+    #max num of steps
+    steps = int(abs(big) * m) 
+
+    for i in range(0,steps+1):
+        j = int(m*i+0.5)
+
+    index = 0
+    prev = 0
+    while (true):
+
+        j = int(index*m + 0.5)
+
+        if (xPot.value > xGoal-0.005 and xPot.value < xGoal+0.005):
+            break
+        else:
+            if(prev != j):
+                takeStep()
+
+
+
