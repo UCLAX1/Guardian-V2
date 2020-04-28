@@ -3,24 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import MoveButton from './MoveButton.js';
-import GradeintButton from './GradeintButton.js';
+import DownloadButton from './DownloadButton.js';
+import GradientButton from './GradientButton.js'
 import OnOffButton from './OnOffButton.js';
 import DistanceAngle from './DistanceAngle.js'
 import Header from './Header.js'
+import CoordTable from'./Table.js'
+import Spinner from './Spinner.js'
+//comment out hamburger and project
+//pulling from local csv and render the table data automatically
+//pure: sliding window, one at a time
+//shift everything to the left
 
 
-//remove link x link y
-//Switch controls and history
-//put actual image on
-//Add Loadng icon of same size
+//combine network's work
 
-//Show last 5 data points in a table when you press history
-//some ui on the table, dividling line
-//bold the header : time, linkx, etc
-//04/06/20 12:43:29.79
-//5 columns: first is time,
-//3 decimal points for link x y
-//go above the download button
+
+//4/20: merge column coordinates ()
+//add Distance Offset and Angle Offset as 2 new columns
+//Pixel dimensions: 960 x 720
+
+//download log: route to Downloads. Have bar at the bottom showing progress. Have a dummy csv/
+//download files generally: get general path
 
 
 /*flow chart of eventhandlers:
@@ -35,8 +39,11 @@ passed from the parent with the param of the latest controls state
 
 */
 
+
+
+
 class Dashboard extends React.Component {
-  state = {controls:'true'};
+  state = {controls:false, video:false};
 
   render(){
     return(
@@ -49,29 +56,69 @@ class Dashboard extends React.Component {
 
   renderContent(){
     //{this.renderVideo()}
+    //{this.renderImage()}
 
     return (
-      <div >
+      <div>
         <Header/>
+        {this.renderTable_Download()}
         {this.renderVideo()}
         {this.renderOnOffButton()}
         {this.renderControls()}
-        {this.renderCoord()}
-        {this.renderDownload()}
       </div>
     );
 
   }
-  renderControls = ()=>{
+
+
+  onToggleSwitch = (controls) =>{
+    //console.log("onToggleSwitch is called");
+    //console.log("value of controls is");
+    //console.log(controls);
+
+    this.setState({controls:controls});
+
+  }
+  renderOnOffButton = () =>{
+      return(
+        <div style = {{  position: 'absolute', top: '220px', left: '1300px'}} className = 'OnOffButton'>
+         <OnOffButton onClick = {this.onToggleSwitch}  value = "hello"/>
+        </div>
+
+      );
+
+  }
+  renderTable_Download(){
+
     if (this.state.controls){
+        return (
+        <div className = 'History'>
+          <div style= {{  position: 'absolute', top: '700px', left: '1350px'}} className = 'Download'>
+            <DownloadButton
+              filename = 'log.csv'
+              text = 'DOWNLOAD'
+            />
+          </div>
+
+          <div style ={{  position: 'absolute', top: '320px', left: '1060px'}}>
+            <CoordTable/>
+          </div>
+        </div>
+      );
+    }
+  }
+
+
+  renderControls = ()=>{
+    if (!this.state.controls){
       return(
         <div>
-          <div className = "controls" style = {{  position: 'absolute', top: '350px', left: '900px'}}>
+          <div className = "controls" style = {{  position: 'absolute', top: '330px', left: '1250px'}}>
             <DistanceAngle/>
           </div>
 
-          <div style= {{  position: 'absolute', top: '520px', left: '1040px'}} className = 'execute_move'>
-            <GradeintButton  text = "EXECUTE"  />
+          <div style= {{  position: 'absolute', top: '540px', left: '1380px'}} className = 'execute_move'>
+            <GradientButton  text = "EXECUTE"  />
           </div>
         </div>
 
@@ -81,6 +128,49 @@ class Dashboard extends React.Component {
     //console.log(this.state.controls);
     //return <div> no controls</div>;
   }
+
+
+
+
+
+  renderVideo = () => {
+    if (this.state.controls){
+      return (
+        <div>
+          {this.renderImage()}
+          <h2 style = {{position:'absolute', top:870, left:50, color:'#2F80ED'}}>Pixel Dimensions: 960 x 720 </h2>
+        </div>
+      );
+      /*
+      return(
+        <video style = {{position:'absolute', top:150, left:50, maxWidth:960,height:720}} controls >
+          Your brower does not support this video format.
+        </video>
+      );
+      */
+    }
+    return (
+        <div style = {{position:'absolute', top:150, left:50, width: 960, height:720 }}>
+          <Spinner/>
+          <h2 style = {{position:'absolute', top:900, left:50, color:'#2F80ED'}}>Pixel Dimensions: 960 x 720 </h2>
+        </div>
+
+    );
+  }
+
+  renderImage(){
+    return (
+      <div style = {{position:'absolute', top:150, left:50}}>
+        <img style = {{borderRadius:5}} src={require('./data/test_pic.jpg')} />
+      </div>
+    );
+
+  }
+
+
+
+  }
+
   /*
   renderControls = ()=>{
     if (this.state.controls){
@@ -104,10 +194,9 @@ class Dashboard extends React.Component {
     //console.log("I'm called! And bool value in function:")
     //console.log(this.state.controls);
     //return <div> no controls</div>;
+
+
   }
-  */
-
-
   renderCoord(){
     return(
       <div className="coordinates">
@@ -118,45 +207,18 @@ class Dashboard extends React.Component {
       </div>
     );
   }
+
   renderDownload(){
-    if (!this.state.controls){
+    if (this.state.controls){
         return (
-        <div style= {{  position: 'absolute', top: '400px', left: '1020px'}} className = 'Download'>
+        <div style= {{  position: 'absolute', top: '700px', left: '1360px'}} className = 'Download'>
           <GradeintButton  text = "DOWNLOAD LOG"  />
         </div>
       );
     }
   }
+  */
 
-  renderOnOffButton = () =>{
-      return(
-        <div style = {{  position: 'absolute', top: '145px', left: '1000px'}} className = 'OnOffButton'>
-         <OnOffButton onClick = {this.onToggleSwitch}  value = "hello"/>
-        </div>
-
-      );
-
-  }
-  renderVideo(){
-    return(
-      <video style = {{position:'relative', top:110, left:120, maxWidth:600,height:570}} controls >
-        Your brower does not support this video format.
-      </video>
-    );
-  }
-
-  onToggleSwitch = (controls) =>{
-    //console.log("onToggleSwitch is called");
-    //console.log("value of controls is");
-    //console.log(controls);
-
-    this.setState({controls:controls});
-
-  }
-
-
-
-  }
 
 
 
