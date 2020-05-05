@@ -1,0 +1,1936 @@
+[
+{
+ "frame_id":1, 
+ "filename":"data/train/01028401_2.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.506874, "center_y":0.500025, "width":0.331168, "height":0.728302}, "confidence":0.991973}
+ ] 
+}, 
+{
+ "frame_id":2, 
+ "filename":"data/train/m_58e53282291a352bf2038f7d.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.566213, "center_y":0.484997, "width":0.622501, "height":1.265339}, "confidence":0.999926}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.560379, "center_y":0.361720, "width":0.334298, "height":0.979247}, "confidence":0.847231}
+ ] 
+}, 
+{
+ "frame_id":3, 
+ "filename":"data/train/set1_67.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.375487, "center_y":0.263285, "width":0.228237, "height":0.518443}, "confidence":0.999792}
+ ] 
+}, 
+{
+ "frame_id":4, 
+ "filename":"data/train/set2_33.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.317420, "center_y":0.256499, "width":0.162551, "height":0.478899}, "confidence":0.999990}
+ ] 
+}, 
+{
+ "frame_id":5, 
+ "filename":"data/train/set2_91.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.706062, "center_y":0.260961, "width":0.149158, "height":0.483720}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":6, 
+ "filename":"data/train/set3_59.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.482008, "center_y":0.291164, "width":0.130075, "height":0.391862}, "confidence":0.998637}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.488296, "center_y":0.316112, "width":0.085799, "height":0.257802}, "confidence":0.344944}
+ ] 
+}, 
+{
+ "frame_id":7, 
+ "filename":"data/train/set4_27.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.580989, "center_y":0.349400, "width":0.071262, "height":0.197158}, "confidence":0.999982}
+ ] 
+}, 
+{
+ "frame_id":8, 
+ "filename":"data/train/set4_85.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.605827, "center_y":0.341412, "width":0.069701, "height":0.231773}, "confidence":0.999995}
+ ] 
+}, 
+{
+ "frame_id":9, 
+ "filename":"data/train/set5_51.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.447292, "center_y":0.353215, "width":0.061574, "height":0.217230}, "confidence":0.999994}
+ ] 
+}, 
+{
+ "frame_id":10, 
+ "filename":"data/train/1036605249.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.487571, "center_y":0.491882, "width":0.496981, "height":1.111926}, "confidence":0.998457}
+ ] 
+}, 
+{
+ "frame_id":11, 
+ "filename":"data/train/set1_1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.244125, "center_y":0.270031, "width":0.184734, "height":0.570152}, "confidence":0.999894}
+ ] 
+}, 
+{
+ "frame_id":12, 
+ "filename":"data/train/set1_69.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.374848, "center_y":0.263808, "width":0.227428, "height":0.511694}, "confidence":0.999805}
+ ] 
+}, 
+{
+ "frame_id":13, 
+ "filename":"data/train/set2_35.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.317731, "center_y":0.254695, "width":0.164151, "height":0.480192}, "confidence":0.999990}
+ ] 
+}, 
+{
+ "frame_id":14, 
+ "filename":"data/train/set2_93.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.705693, "center_y":0.262967, "width":0.152931, "height":0.479523}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":15, 
+ "filename":"data/train/set3_61.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.550824, "center_y":0.296253, "width":0.116764, "height":0.417304}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":16, 
+ "filename":"data/train/set4_29.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.332214, "center_y":0.302784, "width":0.100118, "height":0.341432}, "confidence":0.999788}
+ ] 
+}, 
+{
+ "frame_id":17, 
+ "filename":"data/train/set4_87.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.605943, "center_y":0.342606, "width":0.069943, "height":0.231869}, "confidence":0.999996}
+ ] 
+}, 
+{
+ "frame_id":18, 
+ "filename":"data/train/set5_53.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.433329, "center_y":0.363447, "width":0.071597, "height":0.190923}, "confidence":0.999978}
+ ] 
+}, 
+{
+ "frame_id":19, 
+ "filename":"data/train/1422.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.491597, "center_y":0.566793, "width":0.298791, "height":0.649185}, "confidence":0.998921}
+ ] 
+}, 
+{
+ "frame_id":20, 
+ "filename":"data/train/set1_11.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.102348, "center_y":0.273575, "width":0.206095, "height":0.588957}, "confidence":0.998984}
+ ] 
+}, 
+{
+ "frame_id":21, 
+ "filename":"data/train/set1_7.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.131720, "center_y":0.264493, "width":0.221661, "height":0.514614}, "confidence":0.999849}
+ ] 
+}, 
+{
+ "frame_id":22, 
+ "filename":"data/train/set2_37.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.317676, "center_y":0.255787, "width":0.160691, "height":0.485701}, "confidence":0.999987}
+ ] 
+}, 
+{
+ "frame_id":23, 
+ "filename":"data/train/set2_95.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.705978, "center_y":0.261551, "width":0.152517, "height":0.479687}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":24, 
+ "filename":"data/train/set3_63.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.551195, "center_y":0.297204, "width":0.117171, "height":0.414057}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":25, 
+ "filename":"data/train/set4_3.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.524134, "center_y":0.343972, "width":0.067594, "height":0.187786}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":26, 
+ "filename":"data/train/set4_89.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.474276, "center_y":0.300374, "width":0.092983, "height":0.355897}, "confidence":0.999660}
+ ] 
+}, 
+{
+ "frame_id":27, 
+ "filename":"data/train/set5_55.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387285, "center_y":0.311712, "width":0.091195, "height":0.284446}, "confidence":0.999842}
+ ] 
+}, 
+{
+ "frame_id":28, 
+ "filename":"data/train/1443.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.486357, "center_y":0.491432, "width":0.275294, "height":0.886338}, "confidence":0.999065}
+ ] 
+}, 
+{
+ "frame_id":29, 
+ "filename":"data/train/set1_13.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.481042, "center_y":0.336607, "width":0.321054, "height":0.579613}, "confidence":0.999276}
+ ] 
+}, 
+{
+ "frame_id":30, 
+ "filename":"data/train/set1_71.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.518819, "center_y":0.272755, "width":0.316379, "height":0.583480}, "confidence":0.998335}
+ ] 
+}, 
+{
+ "frame_id":31, 
+ "filename":"data/train/set2_39.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.317489, "center_y":0.257078, "width":0.161359, "height":0.483550}, "confidence":0.999987}
+ ] 
+}, 
+{
+ "frame_id":32, 
+ "filename":"data/train/set2_97.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.706001, "center_y":0.262371, "width":0.153609, "height":0.480763}, "confidence":0.999996}
+ ] 
+}, 
+{
+ "frame_id":33, 
+ "filename":"data/train/set3_65.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.550518, "center_y":0.297222, "width":0.117273, "height":0.411882}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":34, 
+ "filename":"data/train/set4_31.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.339800, "center_y":0.311846, "width":0.102536, "height":0.337458}, "confidence":0.999804}
+ ] 
+}, 
+{
+ "frame_id":35, 
+ "filename":"data/train/set4_9.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.214542, "center_y":0.299811, "width":0.100325, "height":0.372083}, "confidence":0.999951}
+ ] 
+}, 
+{
+ "frame_id":36, 
+ "filename":"data/train/set5_57.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387320, "center_y":0.311775, "width":0.090671, "height":0.280059}, "confidence":0.999908}
+ ] 
+}, 
+{
+ "frame_id":37, 
+ "filename":"data/train/1683743.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.501235, "center_y":0.489165, "width":0.387241, "height":0.853100}, "confidence":0.999973}
+ ] 
+}, 
+{
+ "frame_id":38, 
+ "filename":"data/train/set1_15.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.597966, "center_y":0.332289, "width":0.333757, "height":0.558659}, "confidence":0.996248}
+ ] 
+}, 
+{
+ "frame_id":39, 
+ "filename":"data/train/set1_73.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.520046, "center_y":0.274100, "width":0.334081, "height":0.598096}, "confidence":0.999101}
+ ] 
+}, 
+{
+ "frame_id":40, 
+ "filename":"data/train/set2_41.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.317973, "center_y":0.255927, "width":0.161170, "height":0.485527}, "confidence":0.999991}
+ ] 
+}, 
+{
+ "frame_id":41, 
+ "filename":"data/train/set2_99.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.272583, "center_y":0.266729, "width":0.236167, "height":0.492998}, "confidence":0.995655}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.332955, "center_y":0.264864, "width":0.460987, "height":0.670110}, "confidence":0.350774}
+ ] 
+}, 
+{
+ "frame_id":42, 
+ "filename":"data/train/set3_67.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.550589, "center_y":0.296472, "width":0.117905, "height":0.414027}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":43, 
+ "filename":"data/train/set4_33.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.338950, "center_y":0.312169, "width":0.103482, "height":0.333544}, "confidence":0.999804}
+ ] 
+}, 
+{
+ "frame_id":44, 
+ "filename":"data/train/set4_91.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.474483, "center_y":0.299557, "width":0.092060, "height":0.357958}, "confidence":0.999754}
+ ] 
+}, 
+{
+ "frame_id":45, 
+ "filename":"data/train/set5_59.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387507, "center_y":0.311878, "width":0.092753, "height":0.284709}, "confidence":0.999929}
+ ] 
+}, 
+{
+ "frame_id":46, 
+ "filename":"data/train/277868.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.499889, "center_y":0.496277, "width":0.377233, "height":0.818441}, "confidence":0.988706}
+ ] 
+}, 
+{
+ "frame_id":47, 
+ "filename":"data/train/set1_17.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.599207, "center_y":0.274047, "width":0.339307, "height":0.577065}, "confidence":0.995280}
+ ] 
+}, 
+{
+ "frame_id":48, 
+ "filename":"data/train/set1_75.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.520478, "center_y":0.273058, "width":0.327136, "height":0.592926}, "confidence":0.998789}
+ ] 
+}, 
+{
+ "frame_id":49, 
+ "filename":"data/train/set2_43.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.378314, "center_y":0.263555, "width":0.255191, "height":0.511066}, "confidence":0.999541}
+ ] 
+}, 
+{
+ "frame_id":50, 
+ "filename":"data/train/set3_1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.263017, "center_y":0.265660, "width":0.270085, "height":0.519002}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":51, 
+ "filename":"data/train/set3_69.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.551070, "center_y":0.297048, "width":0.117476, "height":0.410932}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":52, 
+ "filename":"data/train/set4_35.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.332090, "center_y":0.302961, "width":0.102197, "height":0.369146}, "confidence":0.999839}
+ ] 
+}, 
+{
+ "frame_id":53, 
+ "filename":"data/train/set4_93.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.474386, "center_y":0.299782, "width":0.090618, "height":0.359047}, "confidence":0.999731}
+ ] 
+}, 
+{
+ "frame_id":54, 
+ "filename":"data/train/set5_61.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387553, "center_y":0.311632, "width":0.092112, "height":0.286002}, "confidence":0.999919}
+ ] 
+}, 
+{
+ "frame_id":55, 
+ "filename":"data/train/277876.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.519741, "center_y":0.558122, "width":0.445953, "height":0.964511}, "confidence":0.999844}
+ ] 
+}, 
+{
+ "frame_id":56, 
+ "filename":"data/train/set1_19.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.596113, "center_y":0.265384, "width":0.340581, "height":0.523031}, "confidence":0.988513}
+ ] 
+}, 
+{
+ "frame_id":57, 
+ "filename":"data/train/set1_77.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.520103, "center_y":0.273951, "width":0.330339, "height":0.594063}, "confidence":0.998819}
+ ] 
+}, 
+{
+ "frame_id":58, 
+ "filename":"data/train/set2_45.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.378096, "center_y":0.261637, "width":0.256169, "height":0.507084}, "confidence":0.999552}
+ ] 
+}, 
+{
+ "frame_id":59, 
+ "filename":"data/train/set3_11.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.312937, "center_y":0.328100, "width":0.082178, "height":0.267652}, "confidence":0.999178}
+ ] 
+}, 
+{
+ "frame_id":60, 
+ "filename":"data/train/set3_7.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.310730, "center_y":0.327682, "width":0.092753, "height":0.256968}, "confidence":0.999883}
+ ] 
+}, 
+{
+ "frame_id":61, 
+ "filename":"data/train/set4_37.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.454913, "center_y":0.338641, "width":0.066515, "height":0.250892}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":62, 
+ "filename":"data/train/set4_95.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.475121, "center_y":0.299320, "width":0.093027, "height":0.359942}, "confidence":0.999657}
+ ] 
+}, 
+{
+ "frame_id":63, 
+ "filename":"data/train/set5_63.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.389534, "center_y":0.314363, "width":0.089489, "height":0.310229}, "confidence":0.999914}
+ ] 
+}, 
+{
+ "frame_id":64, 
+ "filename":"data/train/set1_21.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.877329, "center_y":0.419117, "width":0.205186, "height":0.799648}, "confidence":0.998894}
+ ] 
+}, 
+{
+ "frame_id":65, 
+ "filename":"data/train/set1_79.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.424593, "center_y":0.286603, "width":0.115509, "height":0.374038}, "confidence":0.999901}
+ ] 
+}, 
+{
+ "frame_id":66, 
+ "filename":"data/train/set2_47.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.377808, "center_y":0.262164, "width":0.258082, "height":0.509503}, "confidence":0.999538}
+ ] 
+}, 
+{
+ "frame_id":67, 
+ "filename":"data/train/set3_13.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.341816, "center_y":0.331379, "width":0.086024, "height":0.244184}, "confidence":0.999491}
+ ] 
+}, 
+{
+ "frame_id":68, 
+ "filename":"data/train/set3_71.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.549775, "center_y":0.297547, "width":0.118412, "height":0.410039}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":69, 
+ "filename":"data/train/set4_39.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.454558, "center_y":0.338647, "width":0.065114, "height":0.250146}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":70, 
+ "filename":"data/train/set4_97.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.482802, "center_y":0.287284, "width":0.120707, "height":0.388502}, "confidence":0.999977}
+ ] 
+}, 
+{
+ "frame_id":71, 
+ "filename":"data/train/set5_65.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.345474, "center_y":0.267745, "width":0.145838, "height":0.420895}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":72, 
+ "filename":"data/train/34215.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.498164, "center_y":0.502607, "width":0.254144, "height":0.815457}, "confidence":0.997974}
+ ] 
+}, 
+{
+ "frame_id":73, 
+ "filename":"data/train/set1_23.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.876869, "center_y":0.418523, "width":0.224646, "height":0.711726}, "confidence":0.997228}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.896356, "center_y":0.195556, "width":0.172006, "height":0.790813}, "confidence":0.709909}
+ ] 
+}, 
+{
+ "frame_id":74, 
+ "filename":"data/train/set1_81.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.414471, "center_y":0.292060, "width":0.123155, "height":0.387197}, "confidence":0.999979}
+ ] 
+}, 
+{
+ "frame_id":75, 
+ "filename":"data/train/set2_49.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.377746, "center_y":0.262988, "width":0.256918, "height":0.508178}, "confidence":0.999570}
+ ] 
+}, 
+{
+ "frame_id":76, 
+ "filename":"data/train/set3_15.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.533080, "center_y":0.329933, "width":0.069508, "height":0.231452}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":77, 
+ "filename":"data/train/set3_73.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.772392, "center_y":0.265298, "width":0.188919, "height":0.533735}, "confidence":0.999672}
+ ] 
+}, 
+{
+ "frame_id":78, 
+ "filename":"data/train/set4_41.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.454841, "center_y":0.339845, "width":0.065450, "height":0.244889}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":79, 
+ "filename":"data/train/set4_99.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.487027, "center_y":0.288922, "width":0.118389, "height":0.379760}, "confidence":0.999988}
+ ] 
+}, 
+{
+ "frame_id":80, 
+ "filename":"data/train/set5_67.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.346476, "center_y":0.265861, "width":0.144427, "height":0.420937}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":81, 
+ "filename":"data/train/3a1da808f00bb748d0466db965207dda.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.295890, "center_y":0.573412, "width":0.275357, "height":0.563447}, "confidence":0.999376}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.554805, "center_y":0.588157, "width":0.209906, "height":0.521330}, "confidence":0.999016}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.773860, "center_y":0.589958, "width":0.180931, "height":0.431812}, "confidence":0.969576}
+ ] 
+}, 
+{
+ "frame_id":82, 
+ "filename":"data/train/set1_25.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.877137, "center_y":0.419999, "width":0.225937, "height":0.700069}, "confidence":0.997512}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.898305, "center_y":0.196313, "width":0.170223, "height":0.768350}, "confidence":0.771664}
+ ] 
+}, 
+{
+ "frame_id":83, 
+ "filename":"data/train/set1_83.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.414673, "center_y":0.293303, "width":0.123066, "height":0.393304}, "confidence":0.999974}
+ ] 
+}, 
+{
+ "frame_id":84, 
+ "filename":"data/train/set2_5.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.562314, "center_y":0.268270, "width":0.392294, "height":0.787493}, "confidence":0.998429}
+ ] 
+}, 
+{
+ "frame_id":85, 
+ "filename":"data/train/set3_17.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.532480, "center_y":0.331683, "width":0.073664, "height":0.228266}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":86, 
+ "filename":"data/train/set3_75.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.772314, "center_y":0.264639, "width":0.191515, "height":0.539673}, "confidence":0.999695}
+ ] 
+}, 
+{
+ "frame_id":87, 
+ "filename":"data/train/set4_43.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.455077, "center_y":0.337771, "width":0.066223, "height":0.246147}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":88, 
+ "filename":"data/train/set5_1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.448321, "center_y":0.282415, "width":0.135819, "height":0.380915}, "confidence":0.999992}
+ ] 
+}, 
+{
+ "frame_id":89, 
+ "filename":"data/train/set5_69.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.346829, "center_y":0.266824, "width":0.144862, "height":0.426146}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":90, 
+ "filename":"data/train/40ML-Liquid.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.409792, "center_y":0.486527, "width":0.532321, "height":1.145931}, "confidence":0.998587}
+ ] 
+}, 
+{
+ "frame_id":91, 
+ "filename":"data/train/set1_27.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.487081, "center_y":0.271995, "width":0.171754, "height":0.472130}, "confidence":0.999708}
+ ] 
+}, 
+{
+ "frame_id":92, 
+ "filename":"data/train/set1_85.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.415342, "center_y":0.292590, "width":0.122564, "height":0.390144}, "confidence":0.999974}
+ ] 
+}, 
+{
+ "frame_id":93, 
+ "filename":"data/train/set2_51.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.377607, "center_y":0.263167, "width":0.259197, "height":0.497032}, "confidence":0.999559}
+ ] 
+}, 
+{
+ "frame_id":94, 
+ "filename":"data/train/set3_19.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.532580, "center_y":0.331934, "width":0.071710, "height":0.228167}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":95, 
+ "filename":"data/train/set3_77.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.772059, "center_y":0.264298, "width":0.192337, "height":0.528158}, "confidence":0.999634}
+ ] 
+}, 
+{
+ "frame_id":96, 
+ "filename":"data/train/set4_45.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.441618, "center_y":0.341147, "width":0.076550, "height":0.250184}, "confidence":0.999594}
+ ] 
+}, 
+{
+ "frame_id":97, 
+ "filename":"data/train/set5_11.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.297260, "center_y":0.209593, "width":0.215571, "height":0.605635}, "confidence":0.999198}
+ ] 
+}, 
+{
+ "frame_id":98, 
+ "filename":"data/train/set5_7.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.451294, "center_y":0.285833, "width":0.116781, "height":0.434392}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":99, 
+ "filename":"data/train/40MLh-Paper-Cre.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.596561, "center_y":0.431570, "width":0.630180, "height":0.369993}, "confidence":0.949644}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.507479, "center_y":0.479180, "width":1.443061, "height":0.168379}, "confidence":0.430026}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.268932, "center_y":0.407542, "width":0.906202, "height":0.631157}, "confidence":0.328917}
+ ] 
+}, 
+{
+ "frame_id":100, 
+ "filename":"data/train/set1_29.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.464898, "center_y":0.257182, "width":0.142244, "height":0.480318}, "confidence":0.999943}
+ ] 
+}, 
+{
+ "frame_id":101, 
+ "filename":"data/train/set1_87.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.426405, "center_y":0.315963, "width":0.114649, "height":0.324321}, "confidence":0.999063}
+ ] 
+}, 
+{
+ "frame_id":102, 
+ "filename":"data/train/set2_53.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.377631, "center_y":0.264457, "width":0.257601, "height":0.501384}, "confidence":0.999657}
+ ] 
+}, 
+{
+ "frame_id":103, 
+ "filename":"data/train/set3_21.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.530990, "center_y":0.337588, "width":0.086253, "height":0.229123}, "confidence":0.999994}
+ ] 
+}, 
+{
+ "frame_id":104, 
+ "filename":"data/train/set3_79.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.772182, "center_y":0.264615, "width":0.193006, "height":0.535709}, "confidence":0.999663}
+ ] 
+}, 
+{
+ "frame_id":105, 
+ "filename":"data/train/set4_47.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.570372, "center_y":0.319177, "width":0.093490, "height":0.264648}, "confidence":0.999582}
+ ] 
+}, 
+{
+ "frame_id":106, 
+ "filename":"data/train/set5_13.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.297324, "center_y":0.209354, "width":0.211843, "height":0.602518}, "confidence":0.999181}
+ ] 
+}, 
+{
+ "frame_id":107, 
+ "filename":"data/train/set5_71.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.590122, "center_y":0.302536, "width":0.114784, "height":0.357148}, "confidence":0.999990}
+ ] 
+}, 
+{
+ "frame_id":108, 
+ "filename":"data/train/424843012.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.491108, "center_y":0.490267, "width":0.638742, "height":0.830662}, "confidence":0.999950}
+ ] 
+}, 
+{
+ "frame_id":109, 
+ "filename":"data/train/set1_3.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.133158, "center_y":0.263619, "width":0.216394, "height":0.517198}, "confidence":0.999957}
+ ] 
+}, 
+{
+ "frame_id":110, 
+ "filename":"data/train/set1_89.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.366051, "center_y":0.260770, "width":0.228937, "height":0.542210}, "confidence":0.999990}
+ ] 
+}, 
+{
+ "frame_id":111, 
+ "filename":"data/train/set2_55.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.377713, "center_y":0.263390, "width":0.255525, "height":0.500875}, "confidence":0.999548}
+ ] 
+}, 
+{
+ "frame_id":112, 
+ "filename":"data/train/set3_23.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.533688, "center_y":0.353881, "width":0.072820, "height":0.166569}, "confidence":0.999191}
+ ] 
+}, 
+{
+ "frame_id":113, 
+ "filename":"data/train/set3_81.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.421036, "center_y":0.359509, "width":0.049887, "height":0.153580}, "confidence":0.999691}
+ ] 
+}, 
+{
+ "frame_id":114, 
+ "filename":"data/train/set4_49.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.570665, "center_y":0.319059, "width":0.092844, "height":0.268331}, "confidence":0.999623}
+ ] 
+}, 
+{
+ "frame_id":115, 
+ "filename":"data/train/set5_15.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.297537, "center_y":0.206958, "width":0.211243, "height":0.618872}, "confidence":0.998917}
+ ] 
+}, 
+{
+ "frame_id":116, 
+ "filename":"data/train/set5_73.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.589364, "center_y":0.302810, "width":0.113185, "height":0.349919}, "confidence":0.999986}
+ ] 
+}, 
+{
+ "frame_id":117, 
+ "filename":"data/train/6a563836cbf6f9a6e42791b6f0ecf688.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.762683, "center_y":0.484261, "width":0.335043, "height":1.094448}, "confidence":0.999769}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.246260, "center_y":0.490536, "width":0.288658, "height":0.852635}, "confidence":0.998644}
+ ] 
+}, 
+{
+ "frame_id":118, 
+ "filename":"data/train/set1_31.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.465001, "center_y":0.255284, "width":0.140448, "height":0.480445}, "confidence":0.999931}
+ ] 
+}, 
+{
+ "frame_id":119, 
+ "filename":"data/train/set1_9.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.101839, "center_y":0.273105, "width":0.206750, "height":0.599491}, "confidence":0.999189}
+ ] 
+}, 
+{
+ "frame_id":120, 
+ "filename":"data/train/set2_57.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.375997, "center_y":0.263099, "width":0.265874, "height":0.502833}, "confidence":0.999698}
+ ] 
+}, 
+{
+ "frame_id":121, 
+ "filename":"data/train/set3_25.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.533441, "center_y":0.354002, "width":0.073057, "height":0.161678}, "confidence":0.998877}
+ ] 
+}, 
+{
+ "frame_id":122, 
+ "filename":"data/train/set3_83.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.416386, "center_y":0.360225, "width":0.050741, "height":0.172223}, "confidence":0.999644}
+ ] 
+}, 
+{
+ "frame_id":123, 
+ "filename":"data/train/set4_5.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.526190, "center_y":0.344802, "width":0.065249, "height":0.197497}, "confidence":0.999995}
+ ] 
+}, 
+{
+ "frame_id":124, 
+ "filename":"data/train/set5_17.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.485300, "center_y":0.296649, "width":0.115806, "height":0.413963}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":125, 
+ "filename":"data/train/set5_75.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.590495, "center_y":0.302739, "width":0.113653, "height":0.351535}, "confidence":0.999987}
+ ] 
+}, 
+{
+ "frame_id":126, 
+ "filename":"data/train/7feec9867b105359d811e66674fa7842.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.376860, "center_y":0.439342, "width":0.241356, "height":0.659723}, "confidence":0.999983}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.647661, "center_y":0.554480, "width":0.208545, "height":0.404386}, "confidence":0.999930}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.500855, "center_y":0.709956, "width":1.088127, "height":0.608947}, "confidence":0.503653}
+ ] 
+}, 
+{
+ "frame_id":127, 
+ "filename":"data/train/set1_33.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.465297, "center_y":0.255989, "width":0.141274, "height":0.490603}, "confidence":0.999951}
+ ] 
+}, 
+{
+ "frame_id":128, 
+ "filename":"data/train/set1_91.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.365454, "center_y":0.259702, "width":0.230506, "height":0.532343}, "confidence":0.999990}
+ ] 
+}, 
+{
+ "frame_id":129, 
+ "filename":"data/train/set2_59.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.562753, "center_y":0.260148, "width":0.143850, "height":0.494548}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":130, 
+ "filename":"data/train/set3_27.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.533490, "center_y":0.352882, "width":0.072608, "height":0.166001}, "confidence":0.999038}
+ ] 
+}, 
+{
+ "frame_id":131, 
+ "filename":"data/train/set3_85.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.416093, "center_y":0.359837, "width":0.051571, "height":0.173599}, "confidence":0.999724}
+ ] 
+}, 
+{
+ "frame_id":132, 
+ "filename":"data/train/set4_51.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.571518, "center_y":0.320163, "width":0.094179, "height":0.267749}, "confidence":0.999484}
+ ] 
+}, 
+{
+ "frame_id":133, 
+ "filename":"data/train/set5_19.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.486220, "center_y":0.297007, "width":0.115925, "height":0.412845}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":134, 
+ "filename":"data/train/set5_77.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.581641, "center_y":0.300181, "width":0.112197, "height":0.335365}, "confidence":0.999900}
+ ] 
+}, 
+{
+ "frame_id":135, 
+ "filename":"data/train/B12002_1024x.jpeg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.518120, "center_y":0.430252, "width":0.198435, "height":0.668446}, "confidence":0.993444}
+ ] 
+}, 
+{
+ "frame_id":136, 
+ "filename":"data/train/set1_35.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.465228, "center_y":0.256080, "width":0.141326, "height":0.477895}, "confidence":0.999946}
+ ] 
+}, 
+{
+ "frame_id":137, 
+ "filename":"data/train/set1_93.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.365540, "center_y":0.260224, "width":0.227748, "height":0.528404}, "confidence":0.999990}
+ ] 
+}, 
+{
+ "frame_id":138, 
+ "filename":"data/train/set2_61.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.563835, "center_y":0.260564, "width":0.143894, "height":0.506511}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":139, 
+ "filename":"data/train/set3_29.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.534049, "center_y":0.353437, "width":0.071582, "height":0.168989}, "confidence":0.999500}
+ ] 
+}, 
+{
+ "frame_id":140, 
+ "filename":"data/train/set3_87.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.416612, "center_y":0.359365, "width":0.051233, "height":0.173893}, "confidence":0.999647}
+ ] 
+}, 
+{
+ "frame_id":141, 
+ "filename":"data/train/set4_53.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.569752, "center_y":0.319982, "width":0.093207, "height":0.267426}, "confidence":0.999605}
+ ] 
+}, 
+{
+ "frame_id":142, 
+ "filename":"data/train/set5_21.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.486756, "center_y":0.297397, "width":0.116020, "height":0.421164}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":143, 
+ "filename":"data/train/set5_79.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.381144, "center_y":0.319961, "width":0.099890, "height":0.325228}, "confidence":0.998980}
+ ] 
+}, 
+{
+ "frame_id":144, 
+ "filename":"data/train/Basswood-and-Balsa-Glue_1024x1024.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.499993, "center_y":0.497618, "width":0.443513, "height":0.934100}, "confidence":0.996737}
+ ] 
+}, 
+{
+ "frame_id":145, 
+ "filename":"data/train/set1_37.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.039644, "center_y":0.274902, "width":0.087902, "height":0.518976}, "confidence":0.995835}
+ ] 
+}, 
+{
+ "frame_id":146, 
+ "filename":"data/train/set1_95.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.365439, "center_y":0.261318, "width":0.228898, "height":0.534291}, "confidence":0.999988}
+ ] 
+}, 
+{
+ "frame_id":147, 
+ "filename":"data/train/set2_63.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.564316, "center_y":0.259770, "width":0.146784, "height":0.502004}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":148, 
+ "filename":"data/train/set3_3.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.266567, "center_y":0.267913, "width":0.262850, "height":0.516538}, "confidence":0.999982}
+ ] 
+}, 
+{
+ "frame_id":149, 
+ "filename":"data/train/set3_89.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.416511, "center_y":0.359585, "width":0.052389, "height":0.174395}, "confidence":0.999679}
+ ] 
+}, 
+{
+ "frame_id":150, 
+ "filename":"data/train/set4_55.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.570620, "center_y":0.320144, "width":0.095082, "height":0.263331}, "confidence":0.999657}
+ ] 
+}, 
+{
+ "frame_id":151, 
+ "filename":"data/train/set5_23.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.488200, "center_y":0.294835, "width":0.118869, "height":0.402009}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":152, 
+ "filename":"data/train/set5_81.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.380641, "center_y":0.321007, "width":0.100237, "height":0.298202}, "confidence":0.999203}
+ ] 
+}, 
+{
+ "frame_id":153, 
+ "filename":"data/train/Deli-White-Liq.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.468762, "center_y":0.495280, "width":0.340307, "height":1.062807}, "confidence":0.993957}
+ ] 
+}, 
+{
+ "frame_id":154, 
+ "filename":"data/train/set1_39.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.039171, "center_y":0.274548, "width":0.088089, "height":0.521073}, "confidence":0.995228}
+ ] 
+}, 
+{
+ "frame_id":155, 
+ "filename":"data/train/set1_97.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.365531, "center_y":0.260304, "width":0.228781, "height":0.533216}, "confidence":0.999989}
+ ] 
+}, 
+{
+ "frame_id":156, 
+ "filename":"data/train/set2_65.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.562390, "center_y":0.259594, "width":0.147251, "height":0.487578}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":157, 
+ "filename":"data/train/set3_31.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.395535, "center_y":0.355819, "width":0.058889, "height":0.187980}, "confidence":0.999898}
+ ] 
+}, 
+{
+ "frame_id":158, 
+ "filename":"data/train/set3_9.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.312728, "center_y":0.326865, "width":0.085338, "height":0.271093}, "confidence":0.999436}
+ ] 
+}, 
+{
+ "frame_id":159, 
+ "filename":"data/train/set4_57.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.570430, "center_y":0.319647, "width":0.095834, "height":0.264976}, "confidence":0.999554}
+ ] 
+}, 
+{
+ "frame_id":160, 
+ "filename":"data/train/set5_25.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.362792, "center_y":0.313024, "width":0.088866, "height":0.292985}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":161, 
+ "filename":"data/train/set5_83.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.380965, "center_y":0.320327, "width":0.098483, "height":0.316002}, "confidence":0.998957}
+ ] 
+}, 
+{
+ "frame_id":162, 
+ "filename":"data/train/ELMERS-MULTI-PURPOSE-GLUE-SAFE-NON-TOXIC-130G.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.522053, "center_y":0.479139, "width":0.422980, "height":0.907181}, "confidence":0.999981}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.953583, "center_y":0.199668, "width":0.084853, "height":0.709481}, "confidence":0.411908}
+ ] 
+}, 
+{
+ "frame_id":163, 
+ "filename":"data/train/set1_41.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.040296, "center_y":0.275288, "width":0.087953, "height":0.518063}, "confidence":0.995302}
+ ] 
+}, 
+{
+ "frame_id":164, 
+ "filename":"data/train/set1_99.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.570013, "center_y":0.270882, "width":0.471456, "height":0.712358}, "confidence":0.994224}
+ ] 
+}, 
+{
+ "frame_id":165, 
+ "filename":"data/train/set2_67.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.288203, "center_y":0.267406, "width":0.193308, "height":0.453541}, "confidence":0.986969}
+ ] 
+}, 
+{
+ "frame_id":166, 
+ "filename":"data/train/set3_33.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.396667, "center_y":0.355190, "width":0.066342, "height":0.180344}, "confidence":0.999979}
+ ] 
+}, 
+{
+ "frame_id":167, 
+ "filename":"data/train/set3_91.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.416035, "center_y":0.358602, "width":0.052164, "height":0.175728}, "confidence":0.999678}
+ ] 
+}, 
+{
+ "frame_id":168, 
+ "filename":"data/train/set4_59.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.570954, "center_y":0.319459, "width":0.091537, "height":0.263974}, "confidence":0.999514}
+ ] 
+}, 
+{
+ "frame_id":169, 
+ "filename":"data/train/set5_27.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.361408, "center_y":0.311997, "width":0.091558, "height":0.283811}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":170, 
+ "filename":"data/train/set5_85.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.379550, "center_y":0.324851, "width":0.089693, "height":0.262779}, "confidence":0.999118}
+ ] 
+}, 
+{
+ "frame_id":171, 
+ "filename":"data/train/GUEST_a6546ad7-b1b5-465a-90ad-c5c55fdc9f77.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.495798, "center_y":0.486351, "width":0.396588, "height":1.027301}, "confidence":0.999811}
+ ] 
+}, 
+{
+ "frame_id":172, 
+ "filename":"data/train/set1_43.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.391918, "center_y":0.289393, "width":0.124481, "height":0.371527}, "confidence":0.998649}
+ ] 
+}, 
+{
+ "frame_id":173, 
+ "filename":"data/train/set2_1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.373429, "center_y":0.253673, "width":0.152268, "height":0.462603}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":174, 
+ "filename":"data/train/set2_69.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.313465, "center_y":0.267011, "width":0.194702, "height":0.465502}, "confidence":0.999450}
+ ] 
+}, 
+{
+ "frame_id":175, 
+ "filename":"data/train/set3_35.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.396876, "center_y":0.353810, "width":0.067034, "height":0.182868}, "confidence":0.999977}
+ ] 
+}, 
+{
+ "frame_id":176, 
+ "filename":"data/train/set3_93.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.416352, "center_y":0.359667, "width":0.051019, "height":0.174787}, "confidence":0.999699}
+ ] 
+}, 
+{
+ "frame_id":177, 
+ "filename":"data/train/set4_61.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.420074, "center_y":0.320661, "width":0.092495, "height":0.264295}, "confidence":0.999490}
+ ] 
+}, 
+{
+ "frame_id":178, 
+ "filename":"data/train/set5_29.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.360447, "center_y":0.312196, "width":0.093360, "height":0.283997}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":179, 
+ "filename":"data/train/set5_87.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.380249, "center_y":0.320311, "width":0.102834, "height":0.305667}, "confidence":0.999050}
+ ] 
+}, 
+{
+ "frame_id":180, 
+ "filename":"data/train/HTB1MKrjlLImBKNjSZFlq6A43FXan.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.504414, "center_y":0.499775, "width":0.807598, "height":0.457035}, "confidence":0.750904}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.367452, "center_y":0.650766, "width":0.570366, "height":0.214806}, "confidence":0.557323}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.498240, "center_y":0.573005, "width":0.452300, "height":0.312960}, "confidence":0.332118}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.427304, "center_y":0.511932, "width":1.414820, "height":0.592064}, "confidence":0.286069}
+ ] 
+}, 
+{
+ "frame_id":181, 
+ "filename":"data/train/set1_45.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.409943, "center_y":0.311637, "width":0.082847, "height":0.294946}, "confidence":0.999913}
+ ] 
+}, 
+{
+ "frame_id":182, 
+ "filename":"data/train/set2_11.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.266626, "center_y":0.275744, "width":0.218797, "height":0.536006}, "confidence":0.999123}
+ ] 
+}, 
+{
+ "frame_id":183, 
+ "filename":"data/train/set2_7.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.371083, "center_y":0.255627, "width":0.155721, "height":0.493928}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":184, 
+ "filename":"data/train/set3_37.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.397388, "center_y":0.353878, "width":0.067165, "height":0.180404}, "confidence":0.999975}
+ ] 
+}, 
+{
+ "frame_id":185, 
+ "filename":"data/train/set3_95.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.487544, "center_y":0.344645, "width":0.070598, "height":0.191514}, "confidence":0.999877}
+ ] 
+}, 
+{
+ "frame_id":186, 
+ "filename":"data/train/set4_63.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.420873, "center_y":0.315463, "width":0.085680, "height":0.296508}, "confidence":0.999686}
+ ] 
+}, 
+{
+ "frame_id":187, 
+ "filename":"data/train/set5_3.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.454063, "center_y":0.284436, "width":0.119919, "height":0.412124}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":188, 
+ "filename":"data/train/set5_89.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.379092, "center_y":0.323771, "width":0.087700, "height":0.299322}, "confidence":0.998247}
+ ] 
+}, 
+{
+ "frame_id":189, 
+ "filename":"data/train/IMG_3244-2.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.531779, "center_y":0.489673, "width":0.356897, "height":0.895639}, "confidence":0.996585}
+ ] 
+}, 
+{
+ "frame_id":190, 
+ "filename":"data/train/set1_47.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.409237, "center_y":0.311514, "width":0.081644, "height":0.294051}, "confidence":0.999955}
+ ] 
+}, 
+{
+ "frame_id":191, 
+ "filename":"data/train/set2_13.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.142960, "center_y":0.269270, "width":0.266307, "height":0.576021}, "confidence":0.999809}
+ ] 
+}, 
+{
+ "frame_id":192, 
+ "filename":"data/train/set2_71.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.313762, "center_y":0.266341, "width":0.198145, "height":0.470375}, "confidence":0.999407}
+ ] 
+}, 
+{
+ "frame_id":193, 
+ "filename":"data/train/set3_39.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.396337, "center_y":0.354329, "width":0.065987, "height":0.180421}, "confidence":0.999976}
+ ] 
+}, 
+{
+ "frame_id":194, 
+ "filename":"data/train/set3_97.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.525335, "center_y":0.347894, "width":0.068161, "height":0.197272}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":195, 
+ "filename":"data/train/set4_65.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.422026, "center_y":0.316068, "width":0.087935, "height":0.292881}, "confidence":0.999707}
+ ] 
+}, 
+{
+ "frame_id":196, 
+ "filename":"data/train/set5_31.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.360551, "center_y":0.311830, "width":0.093180, "height":0.284140}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":197, 
+ "filename":"data/train/set5_9.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.296140, "center_y":0.211116, "width":0.221769, "height":0.602564}, "confidence":0.999162}
+ ] 
+}, 
+{
+ "frame_id":198, 
+ "filename":"data/train/SWGL0601R15cob.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.500965, "center_y":0.495514, "width":0.541773, "height":1.084507}, "confidence":0.981069}
+ ] 
+}, 
+{
+ "frame_id":199, 
+ "filename":"data/train/set1_49.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.409431, "center_y":0.311515, "width":0.080518, "height":0.293253}, "confidence":0.999958}
+ ] 
+}, 
+{
+ "frame_id":200, 
+ "filename":"data/train/set2_15.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.143197, "center_y":0.268998, "width":0.268118, "height":0.584476}, "confidence":0.999749}
+ ] 
+}, 
+{
+ "frame_id":201, 
+ "filename":"data/train/set2_73.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.313723, "center_y":0.265691, "width":0.195718, "height":0.473450}, "confidence":0.999514}
+ ] 
+}, 
+{
+ "frame_id":202, 
+ "filename":"data/train/set3_41.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.234377, "center_y":0.328573, "width":0.076240, "height":0.240855}, "confidence":0.998767}
+ ] 
+}, 
+{
+ "frame_id":203, 
+ "filename":"data/train/set3_99.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.523928, "center_y":0.347743, "width":0.069587, "height":0.194731}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":204, 
+ "filename":"data/train/set4_67.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.421622, "center_y":0.315629, "width":0.086339, "height":0.295610}, "confidence":0.999595}
+ ] 
+}, 
+{
+ "frame_id":205, 
+ "filename":"data/train/set5_33.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.568383, "center_y":0.342477, "width":0.069546, "height":0.231520}, "confidence":0.999923}
+ ] 
+}, 
+{
+ "frame_id":206, 
+ "filename":"data/train/set5_91.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.381750, "center_y":0.348842, "width":0.077065, "height":0.177446}, "confidence":0.997599}
+ ] 
+}, 
+{
+ "frame_id":207, 
+ "filename":"data/train/SWGL0624cobR10.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.824738, "center_y":0.576739, "width":0.208885, "height":0.491954}, "confidence":0.999964}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.612613, "center_y":0.673777, "width":0.162677, "height":0.415375}, "confidence":0.999457}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.345179, "center_y":0.353830, "width":0.341499, "height":0.929647}, "confidence":0.433439}
+ ] 
+}, 
+{
+ "frame_id":208, 
+ "filename":"data/train/set1_5.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.135446, "center_y":0.266466, "width":0.228244, "height":0.513035}, "confidence":0.999989}
+ ] 
+}, 
+{
+ "frame_id":209, 
+ "filename":"data/train/set2_17.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.141804, "center_y":0.268656, "width":0.268431, "height":0.579180}, "confidence":0.999836}
+ ] 
+}, 
+{
+ "frame_id":210, 
+ "filename":"data/train/set2_75.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.313849, "center_y":0.266972, "width":0.197404, "height":0.467602}, "confidence":0.999464}
+ ] 
+}, 
+{
+ "frame_id":211, 
+ "filename":"data/train/set3_43.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.234225, "center_y":0.326952, "width":0.077392, "height":0.240227}, "confidence":0.998823}
+ ] 
+}, 
+{
+ "frame_id":212, 
+ "filename":"data/train/set4_1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.213843, "center_y":0.299324, "width":0.100127, "height":0.367347}, "confidence":0.999935}
+ ] 
+}, 
+{
+ "frame_id":213, 
+ "filename":"data/train/set4_69.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.412777, "center_y":0.315053, "width":0.096576, "height":0.292745}, "confidence":0.999566}
+ ] 
+}, 
+{
+ "frame_id":214, 
+ "filename":"data/train/set5_35.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.565741, "center_y":0.340828, "width":0.081792, "height":0.250083}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":215, 
+ "filename":"data/train/set5_93.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387271, "center_y":0.340909, "width":0.064222, "height":0.217901}, "confidence":0.997211}
+ ] 
+}, 
+{
+ "frame_id":216, 
+ "filename":"data/train/White-Glue.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.506241, "center_y":0.504806, "width":0.346077, "height":0.845735}, "confidence":0.994377}
+ ] 
+}, 
+{
+ "frame_id":217, 
+ "filename":"data/train/set1_51.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.411710, "center_y":0.310568, "width":0.088242, "height":0.274842}, "confidence":0.999655}
+ ] 
+}, 
+{
+ "frame_id":218, 
+ "filename":"data/train/set2_19.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.607198, "center_y":0.195605, "width":0.192825, "height":0.509474}, "confidence":0.999714}
+ ] 
+}, 
+{
+ "frame_id":219, 
+ "filename":"data/train/set2_77.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.470139, "center_y":0.309645, "width":0.103102, "height":0.316114}, "confidence":0.999930}
+ ] 
+}, 
+{
+ "frame_id":220, 
+ "filename":"data/train/set3_45.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.234147, "center_y":0.326582, "width":0.078140, "height":0.241695}, "confidence":0.998923}
+ ] 
+}, 
+{
+ "frame_id":221, 
+ "filename":"data/train/set4_11.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.207366, "center_y":0.292428, "width":0.114281, "height":0.401235}, "confidence":0.999955}
+ ] 
+}, 
+{
+ "frame_id":222, 
+ "filename":"data/train/set4_7.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.214768, "center_y":0.299318, "width":0.101159, "height":0.367894}, "confidence":0.999912}
+ ] 
+}, 
+{
+ "frame_id":223, 
+ "filename":"data/train/set5_37.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.565855, "center_y":0.342536, "width":0.081089, "height":0.249875}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":224, 
+ "filename":"data/train/set5_95.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.381814, "center_y":0.347836, "width":0.079652, "height":0.178829}, "confidence":0.997575}
+ ] 
+}, 
+{
+ "frame_id":225, 
+ "filename":"data/train/White-Glueice.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.428808, "center_y":0.422157, "width":0.624943, "height":0.203500}, "confidence":0.282236}
+ ] 
+}, 
+{
+ "frame_id":226, 
+ "filename":"data/train/set1_53.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.734924, "center_y":0.257089, "width":0.156059, "height":0.434906}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":227, 
+ "filename":"data/train/set2_21.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.598257, "center_y":0.207344, "width":0.207069, "height":0.567227}, "confidence":0.999843}
+ ] 
+}, 
+{
+ "frame_id":228, 
+ "filename":"data/train/set2_79.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.468682, "center_y":0.309453, "width":0.102730, "height":0.313875}, "confidence":0.999936}
+ ] 
+}, 
+{
+ "frame_id":229, 
+ "filename":"data/train/set3_47.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.234410, "center_y":0.326093, "width":0.076385, "height":0.239165}, "confidence":0.998798}
+ ] 
+}, 
+{
+ "frame_id":230, 
+ "filename":"data/train/set4_13.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.475895, "center_y":0.316832, "width":0.081085, "height":0.296768}, "confidence":0.999973}
+ ] 
+}, 
+{
+ "frame_id":231, 
+ "filename":"data/train/set4_71.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.375293, "center_y":0.342069, "width":0.067348, "height":0.225534}, "confidence":0.999997}
+ ] 
+}, 
+{
+ "frame_id":232, 
+ "filename":"data/train/set5_39.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.567334, "center_y":0.341733, "width":0.082032, "height":0.245886}, "confidence":0.999998}
+ ] 
+}, 
+{
+ "frame_id":233, 
+ "filename":"data/train/set5_97.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387828, "center_y":0.340293, "width":0.063880, "height":0.220628}, "confidence":0.996845}
+ ] 
+}, 
+{
+ "frame_id":234, 
+ "filename":"data/train/White-fon-font.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.361805, "center_y":0.497468, "width":0.683078, "height":0.475432}, "confidence":0.828828}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.196194, "center_y":0.422712, "width":0.512265, "height":0.473674}, "confidence":0.437578}
+ ] 
+}, 
+{
+ "frame_id":235, 
+ "filename":"data/train/set1_55.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.734273, "center_y":0.259026, "width":0.154649, "height":0.432113}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":236, 
+ "filename":"data/train/set2_23.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.598262, "center_y":0.205522, "width":0.207093, "height":0.571497}, "confidence":0.999796}
+ ] 
+}, 
+{
+ "frame_id":237, 
+ "filename":"data/train/set2_81.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.468432, "center_y":0.302720, "width":0.106556, "height":0.314019}, "confidence":0.999923}
+ ] 
+}, 
+{
+ "frame_id":238, 
+ "filename":"data/train/set3_49.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.234349, "center_y":0.328657, "width":0.077456, "height":0.238245}, "confidence":0.999398}
+ ] 
+}, 
+{
+ "frame_id":239, 
+ "filename":"data/train/set4_15.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.475763, "center_y":0.316690, "width":0.080276, "height":0.297697}, "confidence":0.999974}
+ ] 
+}, 
+{
+ "frame_id":240, 
+ "filename":"data/train/set4_73.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.374381, "center_y":0.342105, "width":0.064511, "height":0.231677}, "confidence":0.999996}
+ ] 
+}, 
+{
+ "frame_id":241, 
+ "filename":"data/train/set5_41.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.567110, "center_y":0.341421, "width":0.079958, "height":0.242847}, "confidence":0.999999}
+ ] 
+}, 
+{
+ "frame_id":242, 
+ "filename":"data/train/set5_99.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.387891, "center_y":0.341378, "width":0.064440, "height":0.216412}, "confidence":0.997261}
+ ] 
+}, 
+{
+ "frame_id":243, 
+ "filename":"data/train/d6340d08e7f59b1edcf3118d0749fa2d.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.643529, "center_y":0.494405, "width":0.330096, "height":0.781899}, "confidence":0.999993}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.288645, "center_y":0.590793, "width":0.296698, "height":0.746747}, "confidence":0.999973}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.283680, "center_y":0.696777, "width":0.205643, "height":0.482896}, "confidence":0.453448}
+ ] 
+}, 
+{
+ "frame_id":244, 
+ "filename":"data/train/set1_57.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.735379, "center_y":0.259719, "width":0.155330, "height":0.431564}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":245, 
+ "filename":"data/train/set2_25.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.711956, "center_y":0.269516, "width":0.274622, "height":0.553613}, "confidence":0.991863}
+ ] 
+}, 
+{
+ "frame_id":246, 
+ "filename":"data/train/set2_83.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.468349, "center_y":0.302414, "width":0.104573, "height":0.314953}, "confidence":0.999922}
+ ] 
+}, 
+{
+ "frame_id":247, 
+ "filename":"data/train/set3_5.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.268914, "center_y":0.270945, "width":0.265286, "height":0.517510}, "confidence":0.999983}
+ ] 
+}, 
+{
+ "frame_id":248, 
+ "filename":"data/train/set4_17.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.475449, "center_y":0.316711, "width":0.080103, "height":0.301261}, "confidence":0.999974}
+ ] 
+}, 
+{
+ "frame_id":249, 
+ "filename":"data/train/set4_75.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.374179, "center_y":0.340939, "width":0.065766, "height":0.230747}, "confidence":0.999996}
+ ] 
+}, 
+{
+ "frame_id":250, 
+ "filename":"data/train/set5_43.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.443920, "center_y":0.361022, "width":0.070217, "height":0.202006}, "confidence":0.999986}
+ ] 
+}, 
+{
+ "frame_id":251, 
+ "filename":"data/train/sp41688200_sc7.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.486126, "center_y":0.498945, "width":0.297013, "height":0.767532}, "confidence":0.999930}
+ ] 
+}, 
+{
+ "frame_id":252, 
+ "filename":"data/train/df2b0eed52f50f052202c5e9f821bb19.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.514636, "center_y":0.495045, "width":0.697102, "height":0.974542}, "confidence":0.995562}
+ ] 
+}, 
+{
+ "frame_id":253, 
+ "filename":"data/train/set1_59.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.734613, "center_y":0.258645, "width":0.154323, "height":0.432574}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":254, 
+ "filename":"data/train/set2_27.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.905566, "center_y":0.335164, "width":0.161050, "height":0.516204}, "confidence":0.996372}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.941767, "center_y":0.198394, "width":0.126247, "height":0.533687}, "confidence":0.784442}
+ ] 
+}, 
+{
+ "frame_id":255, 
+ "filename":"data/train/set2_85.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.468816, "center_y":0.302889, "width":0.106867, "height":0.313735}, "confidence":0.999925}
+ ] 
+}, 
+{
+ "frame_id":256, 
+ "filename":"data/train/set3_51.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.375467, "center_y":0.311000, "width":0.111894, "height":0.291953}, "confidence":0.999281}
+ ] 
+}, 
+{
+ "frame_id":257, 
+ "filename":"data/train/set4_19.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.472903, "center_y":0.315987, "width":0.079034, "height":0.285913}, "confidence":0.999925}
+ ] 
+}, 
+{
+ "frame_id":258, 
+ "filename":"data/train/set4_77.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.374641, "center_y":0.342988, "width":0.065483, "height":0.230147}, "confidence":0.999996}
+ ] 
+}, 
+{
+ "frame_id":259, 
+ "filename":"data/train/set5_45.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.447888, "center_y":0.351274, "width":0.062655, "height":0.220133}, "confidence":0.999994}
+ ] 
+}, 
+{
+ "frame_id":260, 
+ "filename":"data/train/unnamed.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.500331, "center_y":0.494065, "width":0.471537, "height":1.073514}, "confidence":0.997508}
+ ] 
+}, 
+{
+ "frame_id":261, 
+ "filename":"data/train/e59a45ab-e01f-4099-aad2-030add177da1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.483343, "center_y":0.564877, "width":0.212869, "height":0.606117}, "confidence":0.999375}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.494475, "center_y":0.559488, "width":0.364358, "height":0.978840}, "confidence":0.990303}
+ ] 
+}, 
+{
+ "frame_id":262, 
+ "filename":"data/train/set1_61.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.734604, "center_y":0.259434, "width":0.155854, "height":0.434228}, "confidence":1.000000}
+ ] 
+}, 
+{
+ "frame_id":263, 
+ "filename":"data/train/set2_29.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.908543, "center_y":0.337143, "width":0.153951, "height":0.473508}, "confidence":0.996638}, 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.942101, "center_y":0.198756, "width":0.121349, "height":0.544937}, "confidence":0.815893}
+ ] 
+}, 
+{
+ "frame_id":264, 
+ "filename":"data/train/set2_87.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.713471, "center_y":0.268855, "width":0.170591, "height":0.457138}, "confidence":0.999880}
+ ] 
+}, 
+{
+ "frame_id":265, 
+ "filename":"data/train/set3_53.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.376728, "center_y":0.310888, "width":0.109611, "height":0.297137}, "confidence":0.999675}
+ ] 
+}, 
+{
+ "frame_id":266, 
+ "filename":"data/train/set4_21.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.585771, "center_y":0.343801, "width":0.069435, "height":0.239752}, "confidence":0.999985}
+ ] 
+}, 
+{
+ "frame_id":267, 
+ "filename":"data/train/set4_79.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.567593, "center_y":0.320569, "width":0.096808, "height":0.207830}, "confidence":0.995855}
+ ] 
+}, 
+{
+ "frame_id":268, 
+ "filename":"data/train/set5_47.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.448003, "center_y":0.352227, "width":0.061530, "height":0.217388}, "confidence":0.999995}
+ ] 
+}, 
+{
+ "frame_id":269, 
+ "filename":"data/train/unnamed_1.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.481717, "center_y":0.516198, "width":0.340201, "height":0.746982}, "confidence":0.999557}
+ ] 
+}, 
+{
+ "frame_id":270, 
+ "filename":"data/train/elmer-s-washick.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.659086, "center_y":0.482458, "width":0.356726, "height":0.798432}, "confidence":0.999923}
+ ] 
+}, 
+{
+ "frame_id":271, 
+ "filename":"data/train/set1_63.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.484850, "center_y":0.280209, "width":0.209208, "height":0.475070}, "confidence":0.999097}
+ ] 
+}, 
+{
+ "frame_id":272, 
+ "filename":"data/train/set2_3.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.562543, "center_y":0.269818, "width":0.402026, "height":0.807492}, "confidence":0.997887}
+ ] 
+}, 
+{
+ "frame_id":273, 
+ "filename":"data/train/set2_89.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"glue", "relative_coordinates":{"center_x":0.705830, "center_y":0.260706, "width":0.154131, "height":0.475989}, "confidence":0.999998}
+ ] 
+}

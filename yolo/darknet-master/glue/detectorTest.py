@@ -42,9 +42,9 @@ def doDetect():
 
         curr = images[count].strip('\n')
         
-        yolo_result = performDetect(curr, configPath = "./cfg/yolo-link.cfg",
-                                        weightPath = "./weights/yolo-link_final.weights",
-                                        metaPath = "./data/link.data",
+        yolo_result = performDetect(curr, configPath = "./cfg/yolo-glue.cfg",
+                                        weightPath = "./weights/yolo-glue_final.weights",
+                                        metaPath = "./data/glue.data",
                                         showImage = False,
                                         makeImageOnly = False, initOnly = False)
         
@@ -56,7 +56,7 @@ def doDetect():
         highestConfidence = 0.0
 
         for detected in yolo_result:
-            if detected[0] == 'link' and detected[1] > highestConfidence:
+            if detected[0] == 'glue' and detected[1] > highestConfidence:
                 coords[0] = int(detected[2][0])
                 coords[1] = int(detected[2][1])
                 width = int(detected[2][2])
