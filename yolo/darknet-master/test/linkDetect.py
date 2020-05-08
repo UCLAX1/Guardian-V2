@@ -24,8 +24,8 @@ def detectDistance(x, y, w, h):
     return [dist, angle]
 
 def linkDetect(imagePath):
-    image = cv2.imread(imagePath)
-    yolo_result = performDetect(image, configPath = "./cfg/yolo-link.cfg",
+    #image = cv2.imread(imagePath)
+    yolo_result = performDetect(imagePath, configPath = "./cfg/yolo-link.cfg",
                                     weightPath = "./weights/yolo-link_final.weights",
                                     metaPath = "./data/link.data",
                                     showImage = False,
