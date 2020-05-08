@@ -1,0 +1,46 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.16/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeParseImplicitLinkInfo.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CheckLanguage.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/FindOpenMP.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/SelectLibraryConfigurations.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/pickb/Documents/darknet-master/CMakeFiles/3.16.2/CMakeCCompiler.cmake
+C:/Users/pickb/Documents/darknet-master/CMakeFiles/3.16.2/CMakeCXXCompiler.cmake
+C:/Users/pickb/Documents/darknet-master/CMakeFiles/3.16.2/CMakeRCCompiler.cmake
+C:/Users/pickb/Documents/darknet-master/CMakeFiles/3.16.2/CMakeSystem.cmake
+C:/Users/pickb/Documents/darknet-master/CMakeLists.txt
+C:/Users/pickb/Documents/darknet-master/DarknetConfig.cmake.in
+C:/Users/pickb/Documents/darknet-master/cmake/Modules/FindPThreads_windows.cmake
+C:/Users/pickb/Documents/darknet-master/cmake/Modules/FindStb.cmake
+C:/Users/pickb/Documents/darknet-master/src/version.h.in
+C:/Users/pickb/Downloads/opencv/build/OpenCVConfig-version.cmake
+C:/Users/pickb/Downloads/opencv/build/OpenCVConfig.cmake
+C:/Users/pickb/Downloads/opencv/build/x64/vc15/lib/OpenCVConfig.cmake
+C:/Users/pickb/Downloads/opencv/build/x64/vc15/lib/OpenCVModules-debug.cmake
+C:/Users/pickb/Downloads/opencv/build/x64/vc15/lib/OpenCVModules-release.cmake
+C:/Users/pickb/Downloads/opencv/build/x64/vc15/lib/OpenCVModules.cmake
