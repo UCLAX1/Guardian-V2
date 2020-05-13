@@ -34,7 +34,6 @@ def combo_processing():
         print("Laser: " + str(Laser))
         print("Link: " + str(Link))
         print("---")
-        time.sleep(0.05)
 
 
 
