@@ -10,6 +10,9 @@ import time
 
 def canny_edge(frame, val):
 
+    if frame is None:
+        return None
+
     ratio = 13
     kernel_size = 3
     low_threshold = val
@@ -25,17 +28,21 @@ def canny_edge(frame, val):
 
 def detect_circle(frame):
 
-	edges = canny_edge(frame, 30)
-	gray = cv2.cvtColor(edges, cv2.COLOR_BGR2GRAY)
-	circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1, 50, param1=1, param2=13, minRadius=0, maxRadius=30)
+    if frame is None:
+        return None
 
-	return circles
+    edges = canny_edge(frame, 30)
+    gray = cv2.cvtColor(edges, cv2.COLOR_BGR2GRAY)
+    circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1, 50, param1=1, param2=13, minRadius=0, maxRadius=30)
+
+    return circles
 
 
 
 def filter_red(frame, circles):
 
-    if circles == [] or circles == [[]] or circles == [[[]]]:
+
+    if circles is None:
         return (-1, -1)
 
     if circles.ndim == 1:
