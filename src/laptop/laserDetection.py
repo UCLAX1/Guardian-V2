@@ -41,7 +41,6 @@ def detect_circle(frame):
 
 def filter_red(frame, circles):
 
-
     if circles is None:
         return (-1, -1)
 
