@@ -1,5 +1,5 @@
 classes= 1
 train  = data/train.txt
 valid  = data/test.txt
-names = yolo_params/link.names
+names = link_params/link.names
 backup = backup/

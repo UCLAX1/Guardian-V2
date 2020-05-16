@@ -29,9 +29,9 @@ def detectDistance(x, y, w, h):
 
 def detect_link(frame):
 
-    yolo_result = performDetect(frame, configPath = "./yolo_params/yolo-link.cfg",
-        weightPath = "./yolo_params/yolo-link_final.weights",
-        metaPath = "./yolo_params/link.data", showImage = False,
+    yolo_result = performDetect(frame, configPath = "./link_params/yolo-link.cfg",
+        weightPath = "./link_params/yolo-link_final.weights",
+        metaPath = "./link_params/link.data", showImage = False,
         makeImageOnly = False, initOnly = False)
 
     coords = (-1, -1)
