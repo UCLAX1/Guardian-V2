@@ -34,8 +34,3 @@ export default function MyToggleButton(props) {
 
   );
 }
-/*
-<div style = {{  position: 'absolute', top: '30px', left: '40px'}} className = 'wrapper'>
-
-  </div>
-*/

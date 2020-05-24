@@ -27,15 +27,17 @@ export default function Header() {
     <div className={classes.root} style = {{position:'absolute', width:'100%'}}>
       <AppBar position="static" style={{backgroundColor:'#2F80ED'}}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          {/*<IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
-          </IconButton>
+          </IconButton>*/}
           <Typography variant="h5" className={classes.title} style = {{textAlign: 'center'}}>
             X1 ROBOTICS: Guardian
           </Typography>
-          <Button style={{fontSize:'16px'}} color="inherit">Project</Button>
+          <Button style={{fontSize:'16px'}} color="inherit"></Button> {/*Project*/}
         </Toolbar>
       </AppBar>
+
+      <h2 style = {{position:'absolute', top:870, left:50, color:'#2F80ED'}}>Pixel Dimensions: 960 x 720 </h2>
     </div>
   );
 }
