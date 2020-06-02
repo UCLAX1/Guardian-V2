@@ -33,7 +33,7 @@ GPIO.setmode(GPIO.BCM)
 
 time = 0.000 #75
 scale = 0.2
-tolerance = 2
+tolerance = 15
 sampleCount = 1
 GAIN = 1
 seqStepX = 0
@@ -72,10 +72,10 @@ nSteps = range(0, 2)
 def findDirection(difference):
     #positive difference means go negative direction
 	if (difference > 0):
-		return 1
+		return 2
     #negative difference means go positive direction
 	elif (difference < 0):
-		return 2
+		return 1
     #no difference means don't move
 	else:
 		return 0
@@ -122,9 +122,24 @@ def takeStep(motor, direction, seqStep):
 	else:
 		pass
 
+# Globals 
+laser_coords = (-1, -1)
+link_coords = (-1, -1)
+prev_laser = (-1, -1)
+prev_link = (-1, -1)
+
 # Moving the stepper
 def moveToCoords():
     while (true):
+        #global vars
+        global prev_link
+        global prev_laser
+        global seqStepX
+        global seqStepY
+
+        #FOR TESTING PURPOSES, FIXING LINK'S COORDS TO THE CENTER
+        link_coords = (480, 360)
+
         #get the coords from the tuple values provided
         linkXC = link_coords[0]
         linkYC = link_coords[1]
@@ -133,51 +148,82 @@ def moveToCoords():
 
         laserXC = laser_coords[0]
         laserYC = laser_coords[1]
+        laserXP = prev_laser[0]
+        laserYP = prev_laser[1]
 
-        #if the prev and current link coords are -1, do nothing
-        if(linkXC == linkYC == linkXP == linkYP == -1):
+        
+
+        #stop moving if we don't know where the laser is
+        if(sum(laser_coords) + sum(prev_laser) == -4):
+            #will make it go to the center later on using pots
             pass
 
-        #don't need this rn lol, Akaash's code provides us with the laser coords
-        #get the pot values ... I think
-        #x_value = 0
-		#y_value = 0
-		#for i in range(0,sampleCount):
-		#	x_value = x_value + x_pot.value
-		#	y_value = y_value + y_pot.value
-		#x_value = x_value / sampleCount
-		#y_value = y_value / sampleCount
+        #stop moving if we don't kno where link is
+        elif(sum(link_coords) + sum(prev_link) == -4):
+            pass
+
+        ################# Only get here if we have enough info to move the laser ########################3
+
+        #if the curr laser coords are 0, use the prev as the curr ones
+        elif(laserXC == -1 and laserYC == -1):
+            laserXC = laserXP
+            laserYC = laserYP
+
+        #if the current link coords are not known
+        if(linkXC == -1 and linkYC == -1):
+            #prev coords are known cause we checked earlier
+            linkXC = linkXP
+            linkYC = linkYP
+
+        #if the prev link coords are not 0, use those as the current coords
+        if(linkXP != -1 and linkYP != -1):
+            linkXC = linkXP
+            linkYC = linkYP
+
+        xDiff = laserXC - linkXC
+        yDiff = laserYC - linkYC
+
+        #x stepper
+        if(abs(xDiff) <= tolerance):
+            seqStepX = takeStep(2, findDirection(xDiff), seqStepX))
+
+         #y stepper
+        if(abs(yDiff) <= tolerance):
+            seqStepY = takeStep(1, findDirection(yDiff), seqStepY)
+
+        prev_link = link_coords
+        prev_laser = laser_coords
 
 
         #if the curr link coords are -1, but prev coords aren't, move to prev coords
-        elif(linkXC == -1 and linkYC == -1 and linkXP != -1 and linkYP != -1):
+        #elif(linkXC == -1 and linkYC == -1 and linkXP != -1 and linkYP != -1):
             #difference is between old link coords and laser current coords
-            xDiff = linkXP - laserXC
-            yDiff = linkYP - laserYC
+        #    xDiff = linkXP - laserXC
+        #    yDiff = linkYP - laserYC
 
             #x stepper
-            if(xDiff < tolerance or xDiff > -tolerance):
-                seqStepX = takeStep(2,findDirection(xDiff), seqStepX)
+        #    if(xDiff < tolerance or xDiff > -tolerance):
+        #        seqStepX = takeStep(2,findDirection(xDiff), seqStepX)
 
             #y stepper
-            if(yDiff < tolerance or yDiff > -tolerance):
-                seqStepY = takeStep(1,findDirection(yDiff), seqStepY)
+        #    if(yDiff < tolerance or yDiff > -tolerance):
+        #        seqStepY = takeStep(1,findDirection(yDiff), seqStepY)
 
         #if the current links coords are valid, go to them
-        elif(linkXC != -1 and linkYC != -1):
-            xDiff = linkXC - laserXC
-            yDiff = linkYC - laserYC
+        #elif(linkXC != -1 and linkYC != -1):
+        #    xDiff = linkXC - laserXC
+        #    yDiff = linkYC - laserYC
 
             #x stepper
-            if(xDiff < tolerance or xDiff > -tolerance):
-                seqStepX = takeStep(2,findDirection(xDiff), seqStepX)
+        #    if(xDiff < tolerance or xDiff > -tolerance):
+        #        seqStepX = takeStep(2,findDirection(xDiff), seqStepX)
 
             #y stepper
-            if(yDiff < tolerance or yDiff > -tolerance):
-                seqStepY = takeStep(1,findDirection(yDiff), seqStepY)
+        #    if(yDiff < tolerance or yDiff > -tolerance):
+        #        seqStepY = takeStep(1,findDirection(yDiff), seqStepY)
 
             #update the previous coords
-            prev_link = link_coords
+        #    prev_link = link_coords
 
 
 ########################### Akaash's stuff ########################
@@ -196,11 +242,6 @@ camera.vflip = True
 camera.hflip = True
 
 rawCapture = PiRGBArray(camera, size = (960, 720))
-
-laser_coords = (-1, -1)
-link_coords = (-1, -1)
-prev_laser = (-1, -1)
-prev_link = (-1, -1)
 
 
 def send_frames():
