@@ -24,7 +24,7 @@ footage_socket.setsockopt_string(zmq.SUBSCRIBE, np.unicode(''))
 targeting_socket = context.socket(zmq.PUB)
 targeting_socket.connect('tcp://192.168.0.125:6666')
 
-img = cv2.imread('templates/base_image.jpg')
+img = cv2.imread('intro.jpg')
 laser_coords =  (-1, -1)
 link_coords = (-1, -1)
 link_pos = (-1, -1)
