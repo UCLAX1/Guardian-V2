@@ -2,20 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import MoveButton from './MoveButton.js';
+import DistanceAngle from './DistanceAngle.js';
 import DownloadButton from './DownloadButton.js';
-import GradientButton from './GradientButton.js'
+import GradientButton from './GradientButton.js';
+import Header from './Header.js';
+import LinkTable from'./Table.js';
+import MoveButton from './MoveButton.js';
 import OnOffButton from './OnOffButton.js';
-import DistanceAngle from './DistanceAngle.js'
-import Header from './Header.js'
-import LinkTable from'./Table.js'
-import Spinner from './Spinner.js'
-
+import Spinner from './Spinner.js';
 
 
 
 class Dashboard extends React.Component {
-  state = {controls:false, video:false, frame_counter:0, render:false};
+  state = {controls:false, video:false, frame_counter:0, render:false, currentImg:''};
 
   render(){
     return(
@@ -32,7 +31,7 @@ class Dashboard extends React.Component {
       <div>
         <Header/>
         {this.renderTable_Download()}
-        {this.renderVideo()}
+        {this.renderDisplay()}
         {this.renderOnOffButton()}
         {this.renderControls()}
       </div>
@@ -83,29 +82,26 @@ class Dashboard extends React.Component {
   }
 
   renderTable_Download(){
-    //if controll button is currently toggled:
     if (this.state.controls){
       var rows_data = this.read_5_rows();
-
         return (
-        <div className = 'History'>
-          <div style= {{  position: 'absolute', top: '790px', left: '1350px'}} className = 'Download'>
-            <DownloadButton
-              filename = 'log.csv'
-              text = 'DOWNLOAD'
-            />
+          <div className = 'History'>
+            <div style= {{  position: 'absolute', top: '790px', left: '1350px'}} className = 'Download'>
+              <DownloadButton
+                filename = 'log.csv'
+                text = 'DOWNLOAD'
+              />
+            </div>
+            <div style ={{  position: 'absolute', top: '320px', left: '1060px'}}>
+              <LinkTable rows_data = {rows_data}/>
+            </div>
           </div>
-
-          <div style ={{  position: 'absolute', top: '320px', left: '1060px'}}>
-            <LinkTable rows_data = {rows_data}/>
-          </div>
-        </div>
       );
     }
   }
 
 
-  renderControls = ()=>{
+  renderControls = ()=> {
     if (!this.state.controls){
       return(
         <div>
@@ -117,33 +113,17 @@ class Dashboard extends React.Component {
             <GradientButton  text = "EXECUTE"  />
           </div>
         </div>
-
       );
     }
-
   }
 
-
-
-
-
-  renderVideo = () => {
-
+  renderDisplay = () => {
+    const imageName = this.state.currentImg;
     return (
-        <div style = {{position:'absolute', top:150, left:50, width: 960, height:720 }}>
-          <img style = {{borderRadius:5}} src={require('./data/video_frame_' + (this.state.frame_counter+1).toString(10) + '.jpg')} />
+        <div class = "display">
+          <img style = {{borderRadius:5}}  src={imageName} style = {{position:'absolute', top:150, left:50, width: 960, height:720 }}/>
         </div>
-
     );
-  }
-
-  renderImage(){
-    return (
-      <div style = {{position:'absolute', top:150, left:50}}>
-        <img style = {{borderRadius:5}} src={require('./data/test_pic.jpg')} />
-      </div>
-    );
-
   }
 
   test_data=
@@ -218,44 +198,25 @@ class Dashboard extends React.Component {
 
   ];
 
-  //fetch function: right now it's just setting state and causing the screen to rerender
-  //the acutal data we use right now is a local var called test_data in this class
-  fetch_new_frame =  () => {
-    console.log("frame_counter:");
-    //console.log(this.state.frame_counter);
-    var new_counter = this.state.frame_counter + 1;
-
-    if (this.state.frame_counter < 200){// CHANGE later, hard coded now
-      //this.update_frame_counter();
-      this.setState({frame_counter: new_counter});
-      return true;
-    }
-    else{
-      return false;
-    }
+  fetch_new_frame = () => {
+    fetch("/image")
+      .then(response => response.blob())
+      .then(images => {
+        this.setState({currentImg: URL.createObjectURL(images)})
+      });
   };
 
-  componentDidMount(){
-
-    this.intervalID = setInterval(
-     () => this.fetch_new_frame(),
-     100
-     );
-
+  componentDidMount() {
+    this.intervalID = setInterval(() => this.fetch_new_frame(), 100);
    }
 
-   componentWillUnmount() {
+  componentWillUnmount() {
      clearInterval(this.intervalID);
-   }
-
+  }
 
   componentDidUpdate(prevProps, prevState){
 
-
   }
-
-
-
 }
 
 ReactDOM.render(
