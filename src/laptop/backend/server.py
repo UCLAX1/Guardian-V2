@@ -24,7 +24,7 @@ footage_socket.setsockopt_string(zmq.SUBSCRIBE, np.unicode(''))
 targeting_socket = context.socket(zmq.PUB)
 targeting_socket.connect('tcp://192.168.0.125:6666')
 
-img = cv2.imread("templates/start.jpg")
+img = cv2.imread('templates/base_image.jpg')
 laser_coords =  (-1, -1)
 link_coords = (-1, -1)
 link_pos = (-1, -1)
@@ -94,30 +94,20 @@ if __name__ == "__main__":
 
 
 from flask import Flask, request, make_response, render_template, send_file
+from flask_cors import CORS, cross_origin
 import logging
 
 app = Flask(__name__)
+CORS(app)
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/start.jpg')
-def start():
-    return send_file('templates/start.jpg')
-
-@app.route('/image.jpg')
+@app.route('/image')
 def image():
     retval, buffer = cv2.imencode('.jpg', img)
     response = make_response(buffer.tobytes())
     response.headers['Content-Type'] = 'image/jpg'
     return response
-
-@app.errorhandler(404)
-def page_not_found(error):
-    return "page not found", 404
 
 app.run(debug=True, host='0.0.0.0', use_reloader=False)
