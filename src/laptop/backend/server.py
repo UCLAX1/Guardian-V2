@@ -1,12 +1,10 @@
+from dbConnection import create_db, insert_data
 from laserDetection import detect_laser
 from linkDetection import detect_link
 import base64
 import cv2
-import math
 import numpy as np
-import os
 import threading
-import time
 import zmq
 
 
@@ -24,7 +22,9 @@ footage_socket.setsockopt_string(zmq.SUBSCRIBE, np.unicode(''))
 targeting_socket = context.socket(zmq.PUB)
 targeting_socket.connect('tcp://192.168.0.125:6666')
 
-img = cv2.imread('intro.jpg')
+img = cv2.imread('./data/intro.jpg')
+isIntroImg = True
+
 laser_coords =  (-1, -1)
 link_coords = (-1, -1)
 link_pos = (-1, -1)
@@ -50,16 +50,20 @@ def link_processing():
 def process_data():
 
     while(1):
+        if isIntroImg:
+            continue
+
         laser_processing()
         link_processing()
 
         coords = ",".join(str(x) for x in laser_coords) + "," + ",".join(str(x) for x in link_coords)
         targeting_socket.send_string(coords)
+        insert_data(laser_coords, link_coords, link_pos)
 
 
 
 def receive_images():
-    global img
+    global img, isIntroImg
 
     while(1):
         try:
@@ -67,6 +71,7 @@ def receive_images():
             img64 = base64.b64decode(frame)
             npimg = np.fromstring(img64, dtype=np.uint8)
             img = cv2.imdecode(npimg, 1)
+            isIntroImg = False
 
         except KeyboardInterrupt:
             cv2.destroyAllWindows()
@@ -75,6 +80,8 @@ def receive_images():
 
 
 def main():
+
+    create_db()
 
     x1 = threading.Thread(target = receive_images, daemon = True)
     x2 = threading.Thread(target = process_data, daemon = True)

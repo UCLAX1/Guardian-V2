@@ -14,7 +14,7 @@ import Spinner from './Spinner.js';
 
 
 class Dashboard extends React.Component {
-  state = {controls:false, video:false, frame_counter:0, render:false, currentImg:''};
+  state = {controls:false, video:false, frame_counter:0, render:false, currentImg:require('./data/intro.jpg')};
 
   render(){
     return(
@@ -120,7 +120,7 @@ class Dashboard extends React.Component {
   renderDisplay = () => {
     const imageName = this.state.currentImg;
     return (
-        <div class = "display">
+        <div className = "display">
           <img style = {{borderRadius:5}}  src={imageName} style = {{position:'absolute', top:150, left:50, width: 960, height:720 }}/>
         </div>
     );
@@ -207,7 +207,7 @@ class Dashboard extends React.Component {
   };
 
   componentDidMount() {
-    this.intervalID = setInterval(() => this.fetch_new_frame(), 100);
+    this.intervalID = setInterval(() => this.fetch_new_frame(), 300);
    }
 
   componentWillUnmount() {
