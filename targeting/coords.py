@@ -6,7 +6,7 @@ import io
 import os
 import numpy as np
 import threading
-import time
+import time as t
 import zmq
 
 #imports for the ADC and servos
@@ -20,18 +20,18 @@ import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 
 ######################## ADC set up #########################
-i2c = busio.I2C(board.SCL, board.SDA)
-ads = ADS.ADS1115(i2c, address=0x49)
-​
-x_pot = AnalogIn(ads, ADS.P0)
-y_pot = AnalogIn(ads, ADS.P1)
+#i2c = busio.I2C(board.SCL, board.SDA)
+#ads = ADS.ADS1115(i2c, address=0x49)
+
+#x_pot = AnalogIn(ads, ADS.P0)
+#y_pot = AnalogIn(ads, ADS.P1)
 
 #adc = Adafruit_ADS1x15.ADS1115()
 GPIO.setwarnings(False)
 GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 
-time = 0.000 #75
+time = 0.001 #75
 scale = 0.2
 tolerance = 15
 sampleCount = 1
@@ -42,17 +42,17 @@ seqStepY = 0
 ###################### Stepper set up ############################3
 x_pins = [18, 23, 24, 25]
 y_pins = [17, 27, 22, 4]
-​
+
 for pin in x_pins:
 	GPIO.setup(pin, GPIO.OUT)
 	GPIO.output(pin, False)
-​
+
 for pin in y_pins:
 	GPIO.setup(pin, GPIO.OUT)
 	GPIO.output(pin, False)
-​
+
 StepCount1 = 8
-​
+
 Seq = [[],[],[],[],[],[],[],[]]
 #Seq = range(0, StepCount1)
 Seq[0] = [1, 0, 0, 0]
@@ -63,7 +63,6 @@ Seq[4] = [0, 0, 1, 0]
 Seq[5] = [0, 0, 1, 1]
 Seq[6] = [0, 0, 0, 1]
 Seq[7] = [1, 0, 0, 1]
-​
 nSteps = range(0, 2)
 
 ####################### Functions for laser pointer control #########################
@@ -103,21 +102,21 @@ def takeStep(motor, direction, seqStep):
 			else:
 				GPIO.output(xpin, False)
 	t.sleep(time)
-​
+
     # move in the positive direction
 	if(direction == 1):
 		if (seqStep == 7):
 			return 0
 		else:
 			return seqStep + 1
-    
+
     # move in the negative direction
 	elif(direction == 2):
 		if (seqStep == 0):
 			return 7
 		else:
 			return seqStep - 1
-​
+
     # if direction = 0, then don't move that motor
 	else:
 		pass
@@ -130,12 +129,15 @@ prev_link = (-1, -1)
 
 # Moving the stepper
 def moveToCoords():
-    while (true):
+    while (True):
         #global vars
         global prev_link
         global prev_laser
         global seqStepX
         global seqStepY
+
+        if laser_coords == prev_laser:
+            continue
 
         #FOR TESTING PURPOSES, FIXING LINK'S COORDS TO THE CENTER
         link_coords = (480, 360)
@@ -151,16 +153,14 @@ def moveToCoords():
         laserXP = prev_laser[0]
         laserYP = prev_laser[1]
 
-        
-
         #stop moving if we don't know where the laser is
         if(sum(laser_coords) + sum(prev_laser) == -4):
             #will make it go to the center later on using pots
-            pass
+            continue
 
         #stop moving if we don't kno where link is
         elif(sum(link_coords) + sum(prev_link) == -4):
-            pass
+            continue
 
         ################# Only get here if we have enough info to move the laser ########################3
 
@@ -184,11 +184,11 @@ def moveToCoords():
         yDiff = laserYC - linkYC
 
         #x stepper
-        if(abs(xDiff) <= tolerance):
-            seqStepX = takeStep(2, findDirection(xDiff), seqStepX))
+        if(abs(xDiff) >= tolerance):
+            seqStepX = takeStep(2, findDirection(-xDiff), seqStepX)
 
          #y stepper
-        if(abs(yDiff) <= tolerance):
+        if(abs(yDiff) >= tolerance):
             seqStepY = takeStep(1, findDirection(yDiff), seqStepY)
 
         prev_link = link_coords
@@ -229,7 +229,7 @@ def moveToCoords():
 ########################### Akaash's stuff ########################
 context = zmq.Context()
 footage_socket = context.socket(zmq.PUB)
-footage_socket.connect('tcp://192.168.0.100:5555')
+footage_socket.connect('tcp://192.168.0.145:5555')
 
 targeting_socket = context.socket(zmq.SUB)
 targeting_socket.bind('tcp://*:6666')
@@ -243,9 +243,7 @@ camera.hflip = True
 
 rawCapture = PiRGBArray(camera, size = (960, 720))
 
-
 def send_frames():
-
     for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
         try:
             image = frame.array
@@ -256,8 +254,6 @@ def send_frames():
 
         except KeyboardInterrupt:
             break
-
-
 
 def receive_data():
     global laser_coords, link_coords
@@ -284,11 +280,11 @@ def main():
 
     x1 = threading.Thread(target = send_frames, daemon = False)
     x2 = threading.Thread(target = receive_data, daemon = True)
+    x3 = threading.Thread(target = moveToCoords, daemon = True)
 
     x1.start()
     x2.start()
-
-
+    x3.start()
 
 if __name__ == "__main__":
     main()
