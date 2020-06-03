@@ -8,8 +8,13 @@ GPIO.setwarnings(False)
 GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 
-time = 0.00075
-scale = 0.2
+time = 0.001
+#scale = 0.275
+scale = 0.1
+rotationCount = 5.5;
+angleStep = 5;
+
+y_scaling = 2;
 
 x_pins = [18, 23, 24, 25]
 y_pins = [17, 27, 22, 4]
@@ -68,23 +73,23 @@ def main():
 	drawCircle = []
 	angle = 0
 
-	drawCircle.append([0,0,-1,1])
-	for i in range(0,5):
-		drawCircle.append([-1,1,1,1])
-		drawCircle.append([1,1,1,-1])
-		drawCircle.append([1,-1,-1,-1])
-		drawCircle.append([-1,-1,-1,1])
+#	drawCircle.append([0,0,-1,1])
+#	for i in range(0,2):
+#		drawCircle.append([-1,1,1,1])
+#		drawCircle.append([1,1,1,-1])
+#		drawCircle.append([1,-1,-1,-1])
+#		drawCircle.append([-1,-1,-1,1])
+#	drawCircle.append([-1,1,0,0])
 
-	drawCircle.append([-1,1,0,0])
-
-	while (angle > -360*5):
-		x1 = math.cos(math.radians(angle))
-		y1 = math.sin(math.radians(angle))
-		angle = angle - 5
-		x2 = math.cos(math.radians(angle))
-		y2 = math.sin(math.radians(angle))
+	drawCircle.append([0,0,1,0])
+	while (angle < 360*rotationCount):
+		radius = 1
+		x1 = radius * math.cos(math.radians(angle))
+		y1 = radius * math.sin(math.radians(angle))
+		angle = angle + angleStep
+		x2 = radius * math.cos(math.radians(angle))
+		y2 = radius * math.sin(math.radians(angle))
 		drawCircle.append([x1, y1, x2, y2])
-
 	drawCircle.append([x2,y2,0,0])
 
 	seqStepX = 0
@@ -100,8 +105,8 @@ def main():
 	for lineDraw in drawCircle:
 		for x in range(0, 2):
 			nextX = float(lineDraw[x*2]) * scale
-			nextY = float(lineDraw[x*2+1]) * scale
-			
+			nextY = float(lineDraw[x*2+1]) * scale * y_scaling
+
 			dx = currentX - nextX
 			dy = currentY - nextY
 			stepsX = abs(dx / currentDX) * 2
