@@ -4,6 +4,7 @@ import './index.css';
 
 import DistanceAngle from './DistanceAngle.js';
 import DownloadButton from './DownloadButton.js';
+import ClearButton from './ClearButton.js';
 import GradientButton from './GradientButton.js';
 import Header from './Header.js';
 import LinkTable from'./Table.js';
@@ -86,7 +87,12 @@ class Dashboard extends React.Component {
       var rows_data = this.read_5_rows();
         return (
           <div className = 'History'>
-            <div style= {{  position: 'absolute', top: '790px', left: '1350px'}} className = 'Download'>
+            <div style= {{  position: 'absolute', top: '790px', left: '1350px'}} className = 'Clear'>
+              <ClearButton
+                text = 'CLEAR'
+              />
+            </div>
+            <div style= {{  position: 'absolute', top: '850px', left: '1350px'}} className = 'Download'>
               <DownloadButton
                 filename = 'log.csv'
                 text = 'DOWNLOAD'
