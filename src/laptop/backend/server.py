@@ -1,4 +1,4 @@
-from dbConnection import create_db, insert_data
+from dbConnection import *
 from laserDetection import detect_laser
 from linkDetection import detect_link
 import base64
@@ -96,11 +96,12 @@ if __name__ == "__main__":
 
 
 
+
 # ------------------------------------------------------------------------
 # Flask Webserver
 
 
-from flask import Flask, request, make_response, render_template, send_file
+from flask import Flask, request, make_response, render_template, send_file, jsonify
 from flask_cors import CORS, cross_origin
 import logging
 
@@ -116,5 +117,14 @@ def image():
     response = make_response(buffer.tobytes())
     response.headers['Content-Type'] = 'image/jpg'
     return response
+
+@app.route('/allData')
+def all_data():
+    return retrieve_all_data()
+
+@app.route('/specificData')
+def specific_data():
+    return retrieve_specific_data()
+
 
 app.run(debug=True, host='0.0.0.0', use_reloader=False)

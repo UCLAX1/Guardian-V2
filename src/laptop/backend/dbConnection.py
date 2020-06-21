@@ -3,15 +3,6 @@ import mysql.connector
 
 
 
-my_db = mysql.connector.connect(
-    host="localhost",
-    user="x1",
-    passwd="asme",
-    database="x1_guardian"
-)
-my_cursor = my_db.cursor()
-
-
 def create_db():
 
     create_db_query = (
@@ -23,6 +14,14 @@ def create_db():
         "Time VARCHAR(255) NOT NULL, "
         "PRIMARY KEY (ID))"
     )
+
+    my_db = mysql.connector.connect(
+        host="localhost",
+        user="x1",
+        passwd="asme",
+        database="x1_guardian"
+    )
+    my_cursor = my_db.cursor()
 
     my_cursor.execute(create_db_query)
 
@@ -45,5 +44,75 @@ def insert_data(laser_coords, link_coords, link_pos):
         "VALUES(%s,%s,%s,%s,%s,%s,%s)"
     )
 
+    my_db = mysql.connector.connect(
+        host="localhost",
+        user="x1",
+        passwd="asme",
+        database="x1_guardian"
+    )
+    my_cursor = my_db.cursor()
+
     my_cursor.execute(insert_query, data)
     my_db.commit()
+
+
+
+def retrieve_specific_data():
+
+    retrieve_query = "SELECT * FROM Guardian_Data ORDER BY ID DESC LIMIT 5"
+
+    my_db = mysql.connector.connect(
+        host="localhost",
+        user="x1",
+        passwd="asme",
+        database="x1_guardian"
+    )
+    my_cursor = my_db.cursor()
+
+    my_cursor.execute(retrieve_query)
+    my_result = my_cursor.fetchall()
+
+    for i in range(len(my_result)):
+        my_result[i] = ",".join(map(str,my_result[i]))
+    my_result = "\n".join(my_result)
+
+    return my_result
+
+
+
+def retrieve_all_data():
+
+    retrieve_query = "SELECT * FROM Guardian_Data"
+
+    my_db = mysql.connector.connect(
+        host="localhost",
+        user="x1",
+        passwd="asme",
+        database="x1_guardian"
+    )
+    my_cursor = my_db.cursor()
+
+    my_cursor.execute(retrieve_query)
+    my_result = my_cursor.fetchall()
+
+    for i in range(len(my_result)):
+        my_result[i] = ",".join(map(str,my_result[i]))
+    my_result = "\n".join(my_result)
+
+    return my_result
+
+
+
+def truncate_table():
+
+    truncate_query = "TRUNCATE TABLE Guardian_Data"
+
+    my_db = mysql.connector.connect(
+        host="localhost",
+        user="x1",
+        passwd="asme",
+        database="x1_guardian"
+    )
+    my_cursor = my_db.cursor()
+
+    my_cursor.execute(truncate_query)
