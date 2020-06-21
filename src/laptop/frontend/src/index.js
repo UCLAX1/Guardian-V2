@@ -15,7 +15,7 @@ import Spinner from './Spinner.js';
 
 
 class Dashboard extends React.Component {
-  state = {controls:false, video:false, frame_counter:0, render:false, currentImg:require('./data/intro.jpg')};
+  state = {controls:false, video:false, frame_counter:0, render:false, currentImg:require('./data/intro.jpg'), tableData:[], specificData:[]};
 
   render(){
     return(
@@ -60,31 +60,24 @@ class Dashboard extends React.Component {
 
   }
 
-  //given this.state.frame_counter, process test_data so that rows_data contains exactly 5 rows
-  read_5_rows (){
-    var rows_data = [];
+  //given this.state.frame_counter, process tableData so that rows_data contains exactly 5 rows
+  update_table(){
 
-    if (this.state.frame_counter > 4){
-      rows_data = this.test_data.slice(this.state.frame_counter-5,this.state.frame_counter);
-    }
-
-    else{ //if current l
-      rows_data = this.test_data.slice(0,this.state.frame_counter);
-    }
-    var missing = 5 - rows_data.length;
+    const tableData = this.state.specificData;
+    var missing = 5 - tableData.length;
 
     var k;
     for (k=0; k<missing; k++){
-      rows_data.push("NA"); //NA________________       rows_data.push("NA,NA,NA,NA,NA,NA,NA");
+      tableData.push("NA");
     }
 
-    return rows_data;
+    return tableData;
 
   }
 
   renderTable_Download(){
     if (this.state.controls){
-      var rows_data = this.read_5_rows();
+      const tableData = this.update_table();
         return (
           <div className = 'History'>
             <div style= {{  position: 'absolute', top: '790px', left: '1350px'}} className = 'Clear'>
@@ -99,7 +92,7 @@ class Dashboard extends React.Component {
               />
             </div>
             <div style ={{  position: 'absolute', top: '320px', left: '1060px'}}>
-              <LinkTable rows_data = {rows_data}/>
+              <LinkTable rows_data = {tableData}/>
             </div>
           </div>
       );
@@ -107,7 +100,7 @@ class Dashboard extends React.Component {
   }
 
 
-  renderControls = ()=> {
+  renderControls = () => {
     if (!this.state.controls){
       return(
         <div>
@@ -132,92 +125,30 @@ class Dashboard extends React.Component {
     );
   }
 
-  test_data=
-  [
-    '1662,60,53,57,51,7,46,2020-04-27 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-27 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-27 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-04-27 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1661,41,62,98,35,81,24,2020-04-27 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-27 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-04-27 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1661,41,62,98,35,81,24,2020-04-27 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-27 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-04-27 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1661,41,62,98,35,81,24,2020-04-27 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-27 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-04-27 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1661,41,62,98,35,81,24,2020-04-27 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-27 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-04-27 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-    '1661,41,62,98,35,81,24,2020-04-27 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-27 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-04-27 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-04-27 15:36:14.519775',
-    '1662,60,53,57,51,7,46,2020-04-28 15:36:14.529748',
-    '1661,41,62,98,35,81,24,2020-04-29 15:36:14.526756',
-    '1660,99,72,50,40,58,76,2020-04-30 15:36:14.524763',
-    '1659,70,30,74,20,49,34,2020-05-01 15:36:14.521769',
-    '1658,5,94,6,21,19,73,2020-05-02 15:36:14.519775',
-
-  ];
-
   fetch_new_frame = () => {
     fetch("/image")
       .then(response => response.blob())
-      .then(images => {
-        this.setState({currentImg: URL.createObjectURL(images)})
+      .then(image => {
+        this.setState({currentImg: URL.createObjectURL(image)})
+      });
+  };
+
+  fetch_specific_data = () => {
+    fetch("/specificData")
+      .then(response => response.text())
+      .then(data => {
+        this.setState({specificData: data.split("\n")})
       });
   };
 
   componentDidMount() {
-    this.intervalID = setInterval(() => this.fetch_new_frame(), 300);
+    this.interval_frame = setInterval(() => this.fetch_new_frame(), 300);
+    this.interval_data = setInterval(() => this.fetch_specific_data(), 1000);
    }
 
   componentWillUnmount() {
-     clearInterval(this.intervalID);
+     clearInterval(this.interval_frame);
+     clearInterval(this.interval_data);
   }
 
   componentDidUpdate(prevProps, prevState){

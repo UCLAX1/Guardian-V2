@@ -12,12 +12,6 @@ import Button from '@material-ui/core/Button';
 //learned something today: the text in a button is not encoded in a property value like background
 //Two ways to do the same thing: styled and withStyles (in the comment below)
 
-// Blob object for the content to be download
-const csv_file = new Blob( //binary large object
-  [ 'Vehicle,0367,Dex,IC15\n0.55155,19.258,3.4012,1.7465\n0.73538,1.4708,1.2869,2.2062\n2.436,0.36768,2.8496,1.5627' ],
-  { type: 'text/csv' }
-);
-
 
 const buttonStyle = {
   background: 'linear-gradient(45deg, #56CCF2 30%, #2F80ED 90%)',
@@ -36,13 +30,26 @@ const buttonStyle = {
 
 }
 
+var allData = 'ID,Link_X,Link_Y,Laser_X,Laser_Y,Distance_Offset,Angle_Offset,Time\n';
+
+const fetch_all_data = () => {
+  fetch("/allData")
+    .then(response => response.text())
+    .then(data => {
+      allData = 'ID,Link_X,Link_Y,Laser_X,Laser_Y,Distance_Offset,Angle_Offset,Time\n' + data;
+    });
+};
+
 const DownloadButton = (props) =>{
+  const csv_file = new Blob( //binary large object
+    [ allData ],
+    { type: 'text/csv' }
+  );
   const url = URL.createObjectURL(csv_file);
   return (
     <div className="parent">
-      <a style = {buttonStyle} className="download" href={url} download= {props.filename} title = 'Export Records as CSV' >{props.text} </a>
+      <a style = {buttonStyle} onClick={fetch_all_data()} className="download" href={url} download= {props.filename} title = 'Export Records as CSV' >{props.text} </a>
     </div>
-
   );
 };
 
