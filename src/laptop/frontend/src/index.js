@@ -71,6 +71,10 @@ class Dashboard extends React.Component {
       tableData.push("NA");
     }
 
+    if (tableData[0] == "") {
+      tableData[0] = "NA"
+    }
+
     return tableData;
 
   }
