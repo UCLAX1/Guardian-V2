@@ -85,15 +85,10 @@ class Dashboard extends React.Component {
         return (
           <div className = 'History'>
             <div style= {{  position: 'absolute', top: '790px', left: '1350px'}} className = 'Clear'>
-              <ClearButton
-                text = 'CLEAR'
-              />
+              <ClearButton/>
             </div>
             <div style= {{  position: 'absolute', top: '850px', left: '1350px'}} className = 'Download'>
-              <DownloadButton
-                filename = 'log.csv'
-                text = 'DOWNLOAD'
-              />
+              <DownloadButton/>
             </div>
             <div style ={{  position: 'absolute', top: '320px', left: '1060px'}}>
               <LinkTable rows_data = {tableData}/>

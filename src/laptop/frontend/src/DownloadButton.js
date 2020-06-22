@@ -22,82 +22,38 @@ const buttonStyle = {
   padding: '0 30px',
   height: 48,
   width: 160,
-  //key 4 components to keep things in the middle, the top two allows the bottom two to work
   display: 'flex',
   flexDirection:'column',
-  textAlign: 'center', //horizontal cetner
-  justifyContent: 'center' // vetical center
-
+  textAlign: 'center', //horizontal center
+  justifyContent: 'center', // vertical center
+  textDecoration: 'none'
 }
-
-var allData = 'ID,Link_X,Link_Y,Laser_X,Laser_Y,Distance_Offset,Angle_Offset,Time\n';
 
 const fetch_all_data = () => {
   fetch("/allData")
-    .then(response => response.text())
-    .then(data => {
-      allData = 'ID,Link_X,Link_Y,Laser_X,Laser_Y,Distance_Offset,Angle_Offset,Time\n' + data;
+    .then(response => {
+      response.text().then(data => {
+          let allData = 'ID,Link_X,Link_Y,Laser_X,Laser_Y,Distance_Offset,Angle_Offset,Time\n' + data;
+          const csv_file = new Blob(
+            [ allData ],
+            { type: 'text/csv' }
+          );
+          const url = URL.createObjectURL(csv_file);
+					let a = document.createElement('a');
+					a.href = url;
+					a.download = 'log.csv';
+					a.click();
+				});
     });
 };
 
-const DownloadButton = (props) =>{
-  const csv_file = new Blob( //binary large object
-    [ allData ],
-    { type: 'text/csv' }
-  );
-  const url = URL.createObjectURL(csv_file);
+const DownloadButton = () =>{
+
   return (
     <div className="parent">
-      <a style = {buttonStyle} onClick={fetch_all_data()} className="download" href={url} download= {props.filename} title = 'Export Records as CSV' >{props.text} </a>
+      <a style = {buttonStyle} onClick={() => fetch_all_data()} className="download">DOWNLOAD</a>
     </div>
   );
 };
 
 export default DownloadButton;
-
-
-/*
-
-const HelperButton = styled(Button)({
-  background: 'linear-gradient(45deg, #56CCF2 30%, #2F80ED 90%)',
-  //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  border: 0,
-  borderRadius: 5,
-  color: 'white',
-  height: 48,
-  padding: '0 30px',
-  display: 'inline-block'
-});
-
-export default function GradeintButton(props) {
-
-  return (
-      <HelperButton >
-      {props.text}
-      </HelperButton>
-  );
-}
-
-
-
-
-const StyledButton = withStyles({
-  root: {
-    background: 'linear-gradient(45deg, #56CCF2 30%, #2F80ED 90%)',
-    //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    border: 0,
-    borderRadius: 5,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    display: 'inline-block'
-  },
-  label: {
-    textTransform: 'capitalize',
-  },
-})(ToggleButton);
-
-export default function GradientButton(props) {
-  return <StyledButton>{props.text}</StyledButton>;
-}
-*/

@@ -31,10 +31,10 @@ const clear_data = () => {
   });
 };
 
-const ClearButton = (props) => {
+const ClearButton = () => {
   return (
     <div className="parent">
-      <a style={buttonStyle} onClick={() => clear_data()} className="clear">{props.text}</a>
+      <a style={buttonStyle} onClick={() => clear_data()} className="clear">CLEAR</a>
     </div>
   );
 };
