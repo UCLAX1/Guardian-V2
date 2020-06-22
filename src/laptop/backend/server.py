@@ -126,5 +126,11 @@ def all_data():
 def specific_data():
     return retrieve_specific_data()
 
+@app.route('/clearData', methods=['POST'])
+def postTest():
+    data = request.get_json()
+    if (data['clear'] == 'data'):
+        truncate_table()
+    return data
 
 app.run(debug=True, host='0.0.0.0', use_reloader=False)

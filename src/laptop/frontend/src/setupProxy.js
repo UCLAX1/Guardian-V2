@@ -10,4 +10,7 @@ module.exports = function(app) {
     app.use(createProxyMiddleware('/specificData',
         { target: 'http://localhost:5000/' }
     ));
+    app.use(createProxyMiddleware('/clearData',
+        { target: 'http://localhost:5000/' }
+    ));
 }

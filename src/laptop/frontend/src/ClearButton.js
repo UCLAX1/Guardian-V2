@@ -23,10 +23,18 @@ const buttonStyle = {
 
 }
 
-const ClearButton = (props) =>{
+const clear_data = () => {
+  fetch('/clearData', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({'clear':'data'})
+  });
+};
+
+const ClearButton = (props) => {
   return (
     <div className="parent">
-      <a style = {buttonStyle} className="clear">{props.text}</a>
+      <a style={buttonStyle} onClick={() => clear_data()} className="clear">{props.text}</a>
     </div>
   );
 };
