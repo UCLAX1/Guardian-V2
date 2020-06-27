@@ -17,11 +17,23 @@ const HelperButton = styled(Button)({
   display: 'inline-block'
 });
 
-export default function GradientButton(props) {
+const send_controls_data = () => {
+  fetch('/controls', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(
+      {
+        'distance': document.getElementById('distance_text_field').value,
+        'angle': document.getElementById('angle_text_field').value
+      })
+  });
+};
+
+export default function ExecuteButton() {
 
   return (
-      <HelperButton >
-      {props.text}
+      <HelperButton onClick={() => send_controls_data()}>
+      EXECUTE
       </HelperButton>
   );
 }

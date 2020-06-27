@@ -16,16 +16,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DistanceAngle() {
   const classes = useStyles();
-  //backgroundColor: '#2F80ED', color:'white'
   return (
     <div className={classes.root}>
 
       <div>
         <TextField
-          id="filled-full-width"
-          label="DISTANCE"
+          id="distance_text_field"
+          label="DISTANCE (cm)"
           style={{ margin: 8 }}
-          placeholder="(cm)"
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -35,10 +33,9 @@ export default function DistanceAngle() {
         />
 
         <TextField
-          id="filled-full-width"
-          label="ANGLE"
+          id="angle_text_field"
+          label="ANGLE (degrees)"
           style={{ margin: 8 }}
-          placeholder="(degree)"
           fullWidth
           margin="normal"
           InputLabelProps={{

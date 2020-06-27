@@ -22,6 +22,9 @@ footage_socket.setsockopt_string(zmq.SUBSCRIBE, np.unicode(''))
 targeting_socket = context.socket(zmq.PUB)
 targeting_socket.connect('tcp://192.168.0.125:6666')
 
+controls_socket = context.socket(zmq.PUB)
+controls_socket.connect('tcp://192.168.0.100:7777')
+
 img = cv2.imread('./data/intro.jpg')
 isIntroImg = True
 
@@ -57,7 +60,9 @@ def process_data():
         link_processing()
 
         coords = ",".join(str(x) for x in laser_coords) + "," + ",".join(str(x) for x in link_coords)
+        position_msg = "Detected - Distance: " + str(link_pos[0]) + ", Angle: " + str(link_pos[1])
         targeting_socket.send_string(coords)
+        controls_socket.send_string(position_msg)
         insert_data(laser_coords, link_coords, link_pos)
 
 
@@ -127,10 +132,22 @@ def specific_data():
     return retrieve_specific_data()
 
 @app.route('/clearData', methods=['POST'])
-def postTest():
+def clearData():
     data = request.get_json()
     if (data['clear'] == 'data'):
         truncate_table()
     return data
+
+@app.route('/controls', methods=['POST'])
+def processControls():
+    data = request.get_json()
+    try:
+        distance = int(data['distance'])
+        angle = int(data['angle'])
+        msg = "UserInput - Distance: " + str(distance) + ", Angle: " + str(angle)
+        controls_socket.send_string(msg)
+        return data
+    except:
+        return "Invalid Input"
 
 app.run(debug=True, host='0.0.0.0', use_reloader=False)

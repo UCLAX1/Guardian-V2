@@ -13,7 +13,7 @@ import zmq
 
 context = zmq.Context()
 footage_socket = context.socket(zmq.PUB)
-footage_socket.connect('tcp://192.168.0.100:5555')
+footage_socket.connect('tcp://192.168.0.101:5555')
 
 targeting_socket = context.socket(zmq.SUB)
 targeting_socket.bind('tcp://*:6666')
@@ -50,18 +50,15 @@ def send_frames():
 def receive_data():
     global laser_coords, link_coords
 
-    i = 1
     while(1):
         try:
             coords = targeting_socket.recv_string()
             coords = coords.split(",")
             laser_coords = (int(coords[0]), int(coords[1]))
             link_coords = (int(coords[2]), int(coords[3]))
-            print("Iteration " + str(i))
             print("Laser Coords: " + str(laser_coords))
             print("Link Coords: " + str(link_coords))
             print("-----")
-            i += 1
 
         except KeyboardInterrupt:
             break

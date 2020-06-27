@@ -5,13 +5,12 @@ import './index.css';
 import DistanceAngle from './DistanceAngle.js';
 import DownloadButton from './DownloadButton.js';
 import ClearButton from './ClearButton.js';
-import GradientButton from './GradientButton.js';
+import ExecuteButton from './ExecuteButton.js';
 import Header from './Header.js';
 import LinkTable from'./Table.js';
 import MoveButton from './MoveButton.js';
 import OnOffButton from './OnOffButton.js';
 import Spinner from './Spinner.js';
-
 
 
 class Dashboard extends React.Component {
@@ -43,10 +42,7 @@ class Dashboard extends React.Component {
 
 
   onToggleSwitch = (controls) =>{
-
-
     this.setState({controls:controls});
-
   }
 
 
@@ -55,9 +51,7 @@ class Dashboard extends React.Component {
         <div style = {{  position: 'absolute', top: '220px', left: '1270px'}} className = 'OnOffButton'>
          <OnOffButton onClick = {this.onToggleSwitch}  value = "hello"/>
         </div>
-
       );
-
   }
 
   //given this.state.frame_counter, process tableData so that rows_data contains exactly 5 rows
@@ -107,13 +101,14 @@ class Dashboard extends React.Component {
             <DistanceAngle/>
           </div>
 
-          <div style= {{  position: 'absolute', top: '540px', left: '1350px'}} className = 'execute_move'>
-            <GradientButton  text = "EXECUTE"  />
+          <div style= {{  position: 'absolute', top: '540px', left: '1368px'}} className = 'execute_move'>
+            <ExecuteButton  text = "EXECUTE"  />
           </div>
         </div>
       );
     }
   }
+
 
   renderDisplay = () => {
     const imageName = this.state.currentImg;
