@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import ClearButton from './ClearButton.js';
 import DistanceAngle from './DistanceAngle.js';
 import DownloadButton from './DownloadButton.js';
-import ClearButton from './ClearButton.js';
 import ExecuteButton from './ExecuteButton.js';
 import Header from './Header.js';
 import LinkTable from'./Table.js';
-import MoveButton from './MoveButton.js';
 import OnOffButton from './OnOffButton.js';
 import Spinner from './Spinner.js';
 
