@@ -38,16 +38,19 @@ class Dashboard extends React.Component {
     );
   }
 
-
   onToggleSwitch = (controls) =>{
     this.setState({controls:controls});
   }
 
   renderOnOffButton = () =>{
     var toggle_top = Math.round( 220 * this.state.height / this.state.base_height ).toString();
-    var toggle_left = Math.round( 1387 * this.state.width / this.state.base_width ).toString();
+    var toggle_left = Math.round( 1370 * this.state.width / this.state.base_width ).toString();
+    var text_top = Math.round( 190 * this.state.height / this.state.base_height ).toString();
+    var text_left = Math.round( 1512 * this.state.width / this.state.base_width ).toString();
+    var text_font = Math.round( 16 * this.state.width / this.state.base_width ).toString();
 
       return(
+        <div>
         <div style = {{  position: 'absolute', top: toggle_top + 'px', left: toggle_left + 'px'}} className = 'OnOffButton'>
           <OnOffButton
             onClick = {this.onToggleSwitch}
@@ -57,6 +60,8 @@ class Dashboard extends React.Component {
             base_height = {this.state.base_height}
             base_area = {this.state.base_area}
           />
+        </div>
+        <p style = {{position:'absolute', fontSize: text_font + 'px', top: text_top + 'px', left: text_left + 'px', color:'#000000'}}>Toggle</p>
         </div>
       );
   }
@@ -123,7 +128,6 @@ class Dashboard extends React.Component {
     }
   }
 
-
   renderControls = () => {
     var controls_top = Math.round( 300 * this.state.height / this.state.base_height ).toString();
     var controls_left = Math.round( 1305 * this.state.width / this.state.base_width ).toString();
@@ -156,7 +160,6 @@ class Dashboard extends React.Component {
       );
     }
   }
-
 
   renderDisplay = () => {
     const imageName = this.state.currentImg;

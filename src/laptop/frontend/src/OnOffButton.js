@@ -59,7 +59,7 @@ class OnOffButton extends React.Component{
     var root_padding = 3 * this.props.width / this.props.base_width;
     var thumb_width = Math.round( 1 * this.props.width / this.props.base_width );
     var thumb_height = Math.round( 1 * this.props.height / this.props.base_height );
-    var space = 2 * this.props.width / this.props.base_width;
+    var space = Math.round(2 * this.props.width / this.props.base_width);
 
     return (
       <FormGroup>
