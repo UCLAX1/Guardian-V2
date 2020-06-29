@@ -31,13 +31,10 @@ export default function Header() {
             <MenuIcon />
           </IconButton>*/}
           <Typography variant="h5" className={classes.title} style = {{textAlign: 'center'}}>
-            X1 ROBOTICS: Guardian
+            X1 Robotics: The Guardian
           </Typography>
-          <Button style={{fontSize:'16px'}} color="inherit"></Button> {/*Project*/}
         </Toolbar>
       </AppBar>
-
-      <h2 style = {{position:'absolute', top:870, left:50, color:'#2F80ED'}}>Pixel Dimensions: 960 x 720 </h2>
     </div>
   );
 }

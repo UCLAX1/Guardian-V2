@@ -8,12 +8,9 @@ import Button from '@material-ui/core/Button';
 
 const HelperButton = styled(Button)({
   background: 'linear-gradient(45deg, #56CCF2 30%, #2F80ED 90%)',
-  //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
   border: 0,
   borderRadius: 5,
   color: 'white',
-  height: 48,
-  padding: '0 30px',
   display: 'inline-block'
 });
 
@@ -29,11 +26,18 @@ const send_controls_data = () => {
   });
 };
 
-export default function ExecuteButton() {
+const ExecuteButton = (props) => {
+
+  var execute_height = Math.round( 48 * props.height / props.base_height );
+  var execute_width = Math.round( 160 * props.width / props.base_width );
+  var execute_padding = Math.round( 30 * props.width / props.base_width ).toString();
+  var font_size = Math.round( 15 * props.width * props.height / props.base_area ).toString();
 
   return (
-      <HelperButton onClick={() => send_controls_data()}>
-      EXECUTE
+      <HelperButton onClick={() => send_controls_data()} style = {{height: execute_height, width: execute_width, padding: '0 ' + execute_padding + 'px', fontSize: font_size + 'px'}}>
+        EXECUTE
       </HelperButton>
   );
 }
+
+export default ExecuteButton;

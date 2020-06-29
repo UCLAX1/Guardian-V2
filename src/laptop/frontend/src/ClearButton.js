@@ -6,22 +6,17 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import Button from '@material-ui/core/Button';
 
 
-const buttonStyle = {
+const HelperButton = styled(Button)({
   background: 'linear-gradient(45deg, #56CCF2 30%, #2F80ED 90%)',
-  //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
   border: 0,
   borderRadius: 5,
   color: 'white',
-  padding: '0 30px',
-  height: 48,
-  width: 160,
-  //key 4 components to keep things in the middle, the top two allows the bottom two to work
   display: 'flex',
   flexDirection:'column',
-  textAlign: 'center', //horizontal cetner
-  justifyContent: 'center' // vetical center
-
-}
+  textAlign: 'center', //horizontal center
+  justifyContent: 'center', // vertical center
+  textDecoration: 'none'
+});
 
 const clear_data = () => {
   fetch('/clearData', {
@@ -31,10 +26,18 @@ const clear_data = () => {
   });
 };
 
-const ClearButton = () => {
+const ClearButton = (props) => {
+
+  var clear_height = Math.round( 48 * props.height / props.base_height );
+  var clear_width = Math.round( 160 * props.width / props.base_width );
+  var clear_padding = Math.round( 30 * props.width / props.base_width ).toString();
+  var font_size = Math.round( 15 * props.width * props.height / props.base_area ).toString();
+
   return (
     <div className="parent">
-      <a style={buttonStyle} onClick={() => clear_data()} className="clear">CLEAR</a>
+      <HelperButton onClick={() => clear_data()} style = {{height: clear_height, width: clear_width, padding: '0 ' + clear_padding + 'px', fontSize: font_size + 'px'}} className="clear">
+        CLEAR
+      </HelperButton>
     </div>
   );
 };
