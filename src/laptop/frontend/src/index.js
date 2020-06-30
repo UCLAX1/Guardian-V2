@@ -9,6 +9,7 @@ import ExecuteButton from './ExecuteButton.js';
 import Header from './Header.js';
 import LinkTable from'./Table.js';
 import OnOffButton from './OnOffButton.js';
+import Toggle from './Toggle.js';
 import Spinner from './Spinner.js';
 
 
@@ -45,9 +46,8 @@ class Dashboard extends React.Component {
   renderOnOffButton = () =>{
     var toggle_top = Math.round( 220 * this.state.height / this.state.base_height ).toString();
     var toggle_left = Math.round( 1370 * this.state.width / this.state.base_width ).toString();
-    var text_top = Math.round( 190 * this.state.height / this.state.base_height ).toString();
-    var text_left = Math.round( 1512 * this.state.width / this.state.base_width ).toString();
-    var text_font = Math.round( 16 * this.state.width / this.state.base_width ).toString();
+    var text_top = Math.round( 200 * this.state.height / this.state.base_height ).toString();
+    var text_left = Math.round( 1371 * this.state.width / this.state.base_width ).toString();
 
       return(
         <div>
@@ -61,7 +61,15 @@ class Dashboard extends React.Component {
             base_area = {this.state.base_area}
           />
         </div>
-        <p style = {{position:'absolute', fontSize: text_font + 'px', top: text_top + 'px', left: text_left + 'px', color:'#000000'}}>Toggle</p>
+        <div style = {{  position: 'absolute', top: text_top + 'px', left: text_left + 'px'}} className = 'Toggle'>
+          <Toggle
+            width = {this.state.width}
+            height = {this.state.height}
+            base_width = {this.state.base_width}
+            base_height = {this.state.base_height}
+            base_area = {this.state.base_area}
+          />
+        </div>
         </div>
       );
   }

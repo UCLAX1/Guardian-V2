@@ -64,7 +64,7 @@ class OnOffButton extends React.Component{
     return (
       <FormGroup>
         <Typography component="div">
-          <Grid component="label" container alignItems="center" spacing={space}>
+          <Grid component="label" container alignItems="center" spacing={2}>
             <Grid item style ={{color:'#FF0000', fontWeight: 'bold', fontSize: font_size + 'px'}}>CONTROLS</Grid>
             <Grid item>
               <AntSwitch
