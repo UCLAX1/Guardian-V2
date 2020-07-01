@@ -15,7 +15,8 @@ Created on Tue Jun 30 17:38:59 2020
 """
 
 
-
+#run detect_red_laser. It is the master function that takes a frame and returns a tuple of (x,y) coordinates. returns (-1,-1) if failed to 
+#find a laser
 import numpy as np
 import cv2
 import math
