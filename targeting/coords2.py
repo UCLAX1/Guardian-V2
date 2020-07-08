@@ -1,4 +1,4 @@
-from picamera.array import PiRGBArray
+,from picamera.array import PiRGBArray
 from picamera import PiCamera
 import base64
 import cv2
@@ -267,7 +267,7 @@ def moveToCoords():
 ########################### Akaash's stuff ########################
 context = zmq.Context()
 footage_socket = context.socket(zmq.PUB)
-footage_socket.connect('tcp://192.168.0.143:5555')
+footage_socket.connect('tcp://192.168.0.140:5555')
 
 targeting_socket = context.socket(zmq.SUB)
 targeting_socket.bind('tcp://*:6666')
@@ -301,7 +301,7 @@ def receive_data():
         try:
             coords = targeting_socket.recv_string()
             coords = coords.split(",")
-            laser_coords = (int(coords[0]), int(coords[1]))
+            laser_coords = (int(float(coords[0])), int(float(coords[1])))
             link_coords = (int(coords[2]), int(coords[3]))
             print("Iteration " + str(i))
             print("Laser Coords: " + str(laser_coords))
