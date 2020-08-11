@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
   }
 
   renderOnOffButton = () =>{
-    var toggle_top = Math.round( 220 * this.state.height / this.state.base_height ).toString();
+    var toggle_top = Math.round( 240 * this.state.height / this.state.base_height ).toString();
     var toggle_left = Math.round( 1370 * this.state.width / this.state.base_width ).toString();
     var text_top = Math.round( 200 * this.state.height / this.state.base_height ).toString();
     var text_left = Math.round( 1371 * this.state.width / this.state.base_width ).toString();

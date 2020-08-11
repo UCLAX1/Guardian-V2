@@ -13,7 +13,7 @@ const AntSwitch = withStyles((theme) => ({
     width: props => props.r_width,
     height: props => props.r_height,
     padding: props => props.r_padding,
-    display: 'flex',
+    display: 'flex'
   },
   switchBase: {
     padding: 3,
@@ -24,7 +24,7 @@ const AntSwitch = withStyles((theme) => ({
         opacity: 1,
         backgroundColor: '#228B22',
         borderColor: '#228B22'
-      },
+      }
     },
   },
   thumb: {
@@ -55,8 +55,8 @@ class OnOffButton extends React.Component{
 
     var font_size = Math.round( 21 * this.props.width / this.props.base_width );
     var root_width = Math.round( 50 * this.props.width / this.props.base_width );
-    var root_height = Math.round( 20 * this.props.height / this.props.base_height );
-    var root_padding = 3 * this.props.width / this.props.base_width;
+    var root_height = Math.round( 30 * this.props.height / this.props.base_height );
+    var root_padding = Math.round(3 * this.props.width / this.props.base_width);
     var thumb_width = Math.round( 1 * this.props.width / this.props.base_width );
     var thumb_height = Math.round( 1 * this.props.height / this.props.base_height );
     var space = Math.round(2 * this.props.width / this.props.base_width);
