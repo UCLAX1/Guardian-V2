@@ -13,7 +13,7 @@ import zmq
 
 context = zmq.Context()
 footage_socket = context.socket(zmq.PUB)
-footage_socket.connect('tcp://192.168.0.101:5555')
+footage_socket.connect('tcp://192.168.0.100:5555')
 
 targeting_socket = context.socket(zmq.SUB)
 targeting_socket.bind('tcp://*:6666')

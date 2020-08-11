@@ -20,10 +20,10 @@ footage_socket.bind('tcp://*:5555')
 footage_socket.setsockopt_string(zmq.SUBSCRIBE, np.unicode(''))
 
 targeting_socket = context.socket(zmq.PUB)
-targeting_socket.connect('tcp://192.168.0.125:6666')
+targeting_socket.connect('tcp://192.168.0.124:6666')
 
 controls_socket = context.socket(zmq.PUB)
-controls_socket.connect('tcp://192.168.0.100:7777')
+controls_socket.connect('tcp://192.168.0.125:7777')
 
 img = cv2.imread('./data/intro.jpg')
 isIntroImg = True
