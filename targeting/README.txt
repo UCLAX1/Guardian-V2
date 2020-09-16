@@ -1,4 +1,4 @@
-UCLA ASME X1 Robotics Ð Guardian V2 Targeting Program File List
+UCLA ASME X1 Robotics - Guardian V2 Targeting Program File List
 Last updated by Hayato Kato on September 15, 2020
 
 ** Disclaimer: There were two main iterations of the algorithm: one using the old stepper library, and one using our custom stepper library. The most current version utilizes the custom stepper library that allows precise control over both steppers simultaneously. Also, there were two different ADC chips used along the development. The most current version uses the ADS1115 chip, which has a 16 bit resolution.
