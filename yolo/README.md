@@ -1,4 +1,4 @@
-INTRO TO DARKNET:
+## Intro to Darknet:
     
     The directory darknet-master contains all the files needed to do basic testing and training with the link detection system.
     It's pretty overwhelming, but to start off with only worry about the files contained in 'darknet-master\test' . This is where
@@ -6,9 +6,7 @@ INTRO TO DARKNET:
     existing infrastructure to make darknet detection work.
 
 
-=====================================================================================================================================================
-
-TESTING:
+## Testing:
 
     All the files you need for local testing are in 'darknet-master\test'
     This directory contains scripts for testing detection on multiple images and collecting analytics.
@@ -38,10 +36,8 @@ TESTING:
     be changed, and needs to be for our implementation. The python scripts in 'darknet-master\test' handle this.
 
 
-=====================================================================================================================================================
 
-TRAINING:
-
+## Training:
     Training is much more computationally intensive, and as a result we use virtual hardware to perform this task. 
 
     Additionally, training requires a set of images along with a set of pre-made labels for these images. To create these labels is no
