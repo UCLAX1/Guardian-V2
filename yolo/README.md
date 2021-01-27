@@ -5,7 +5,6 @@ It's pretty overwhelming, but to start off with only worry about the files conta
 almost all the code actually written by this team and all the files used by the Guardian are located. The rest is mainly
 existing infrastructure to make darknet detection work.
 
-- - - -
 
 ## Testing:
 
@@ -36,7 +35,6 @@ in the 'data/test' directory, these changes must be reflected in test.txt .
 By invoking the command above, darknet will pause after every image, showing you the detection result. However, this behavior can 
 be changed, and needs to be for our implementation. The python scripts in 'darknet-master\test' handle this.
 
-- - - -
 
 ## Training:
 Training is much more computationally intensive, and as a result we use virtual hardware to perform this task. 
