@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-
 import legs
 
 ##-----------SIMULATION CODE-----------##
@@ -81,21 +80,22 @@ def rotate(path, gamma):
 
 def path_Jump(cur_pos, end_pos):
 	new_path = np.array([cur_pos])
-	z_high = -0.17+0.031; z_low = -0.17
-	N = int(np.ceil(np.abs(cur_pos[2] - z_high)/0.01))
-	z_moves = np.linspace(cur_pos[2],z_high,N)
-	for i in range(N):
-		new_path = np.append(new_path,[[cur_pos[0],cur_pos[1],z_moves[i]]],0)
-	N_x = int(np.ceil(np.abs(cur_pos[0] - end_pos[0])/0.01))
-	N_y = int(np.ceil(np.abs(cur_pos[1] - end_pos[1])/0.01))
-	N = N_x if N_x > N_y else N_y
-	x_moves = np.linspace(cur_pos[0],end_pos[0],N)
-	y_moves = np.linspace(cur_pos[1],end_pos[1],N)
-	for i in range(N):
-		new_path = np.append(new_path,[[x_moves[i],y_moves[i],z_high]],0)
-	new_path = np.append(new_path,np.array([[end_pos[0],end_pos[1],-0.17+0.026],
-											[end_pos[0],end_pos[1],-0.17+0.015],
-											[end_pos[0],end_pos[1],-0.17]]),0)
+	if cur_pos[0] != end_pos[0] or cur_pos[1] != end_pos[1] or cur_pos[2] != end_pos[2]:
+		z_high = -0.17+0.031; z_low = -0.17
+		N = int(np.ceil(np.abs(cur_pos[2] - z_high)/0.01))
+		z_moves = np.linspace(cur_pos[2],z_high,N)
+		for i in range(N):
+			new_path = np.append(new_path,[[cur_pos[0],cur_pos[1],z_moves[i]]],0)
+		N_x = int(np.ceil(np.abs(cur_pos[0] - end_pos[0])/0.01))
+		N_y = int(np.ceil(np.abs(cur_pos[1] - end_pos[1])/0.01))
+		N = N_x if N_x > N_y else N_y
+		x_moves = np.linspace(cur_pos[0],end_pos[0],N)
+		y_moves = np.linspace(cur_pos[1],end_pos[1],N)
+		for i in range(N):
+			new_path = np.append(new_path,[[x_moves[i],y_moves[i],z_high]],0)
+		new_path = np.append(new_path,np.array([[end_pos[0],end_pos[1],-0.17+0.026],
+												[end_pos[0],end_pos[1],-0.17+0.015],
+												[end_pos[0],end_pos[1],-0.17]]),0)
 	return new_path
 
 
@@ -154,6 +154,6 @@ path_CCW = np.array([[0.1,0,-0.17],
 ##-----------MAIN-----------##
 if __name__ == '__main__' and legs.SIMULATION:
 	guardian = legs.guardian()
-	guardian.moveTo(0*0.01*50,-1*0.01*50)
+	guardian.moveTo(-0.75, -0.75, True)
 	sim = simulation(guardian, 80, 50)
 	sim.show(); del sim #Nothing after this line will run until plot window is closed

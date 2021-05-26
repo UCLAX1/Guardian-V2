@@ -1,9 +1,18 @@
 import numpy as np
-
 import path
 
 SIMULATION = True
-SERVOS_CONNECTED = False
+SERVOS_CONNECTED = True
+try:
+    from adafruit_servokit import ServoKit
+    kit1 = ServoKit(channels=16,address=0x40)
+    kit2 = ServoKit(channels=16,address=0x41)
+    hat_map = [1,1,1,2,2,2]
+    pin_map =[[0,1,2],[3,4,5],[6,7,8],[7,8,9],[10,11,12],[13,14,15]]
+except:
+    print("Servos Disabled")
+    SERVOS_CONNECTED = False
+    
 
 class guardian:
     def __init__ (self, zeta = [0,0,0], DH = np.array([]), pathOffsets = [0.08,-0.02]):
@@ -28,8 +37,19 @@ class guardian:
         return self.legs
 
     def nextPos (self):
+        global kit1, kit2, hat_map, pin_map, SERVOS_CONNECTED
         vals = [0,0,0,0,0,0]
-        for i in range(6): vals[i] = self.legs[i].nextPos()
+        for i in range(3): 
+            vals[i] = self.legs[i].nextPos()
+            vals[i+3] = self.legs[i+3].nextPos()
+            if SERVOS_CONNECTED:
+                kit1.servo[3*i].angle = self.legs[i].theta[self.legs[i].currentPos,0]
+                kit2.servo[3*i].angle = self.legs[i+3].theta[self.legs[i+3].currentPos,0]
+                kit1.servo[3*i+1].angle = self.legs[i].theta[self.legs[i].currentPos,1]
+                kit2.servo[3*i+1].angle = self.legs[i+3].theta[self.legs[i+3].currentPos,1]
+                kit1.servo[3*i+2].angle = self.legs[i].theta[self.legs[i].currentPos,2]
+                kit2.servo[3*i+2].angle = self.legs[i+3].theta[self.legs[i+3].currentPos,2]
+            
         if -1 not in vals:
             if self.legs[0].currentPos > self.moveSteps[0]\
                 and self.legs[0].currentPos <= self.moveSteps[0] + self.moveSteps[1]:
@@ -39,7 +59,7 @@ class guardian:
                     self.zeta[0] += self.dx*np.cos(self.zeta[2])
                     self.zeta[1] += self.dx*np.sin(self.zeta[2])
 
-    def moveTo (self, x, y, vAvg = 1):
+    def moveTo (self, x, y, RESET_AFTER = False):
         if x == 0 and y == 0: return
         delays = [0,7,14,0,14,7]
         prep_paths1 = {
@@ -203,11 +223,66 @@ class guardian:
                             prep_paths2[j] = np.append(prep_paths2[j],[last_pos],0)
         self.moveSteps[2] += np.sum([np.max([N_jump[0],N_jump[3]]),np.max([N_jump[1],N_jump[4]]),np.max([N_jump[2],N_jump[5]])])
 
-        #Combine All the Paths
-        print(self.moveSteps)
-        for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
+        #Reset Legs After
+        if RESET_AFTER:
+            reset_paths = {
+                0: np.empty((0,3)),
+                1: np.empty((0,3)),
+                2: np.empty((0,3)),
+                3: np.empty((0,3)),
+                4: np.empty((0,3)),
+                5: np.empty((0,3)),
+            }   
+            temp_path = {
+                0: path.path_Jump(lin_paths[0][self.moveSteps[3],0:3],[0.1,0,-0.17]),
+                1: path.path_Jump(lin_paths[1][self.moveSteps[3],0:3],[0.1,0,-0.17]),
+                2: path.path_Jump(lin_paths[2][self.moveSteps[3],0:3],[0.1,0,-0.17]),
+                3: path.path_Jump(lin_paths[3][self.moveSteps[3],0:3],[0.1,0,-0.17]),
+                4: path.path_Jump(lin_paths[4][self.moveSteps[3],0:3],[0.1,0,-0.17]),
+                5: path.path_Jump(lin_paths[5][self.moveSteps[3],0:3],[0.1,0,-0.17])
+            }
+            for i in range(6):
+                reset_paths[i] = np.append(reset_paths[i],[lin_paths[i][self.moveSteps[3],0:3]],0)
+
+            N_jump = [np.shape(temp_path[0])[0],
+                      np.shape(temp_path[1])[0],
+                      np.shape(temp_path[2])[0],
+                      np.shape(temp_path[3])[0],
+                      np.shape(temp_path[4])[0],
+                      np.shape(temp_path[5])[0]]
+        
+            for i in range(3):
+                reset_paths[i] = np.append(reset_paths[i],temp_path[i],0)
+                reset_paths[i+3] = np.append(reset_paths[i+3],temp_path[i+3],0)
+                for j in range(6):
+                    if N_jump[i] > N_jump[i+3]:
+                        last_pos = reset_paths[j][np.shape(reset_paths[j])[0]-1,0:3]
+                        if j == i+3:
+                            for k in range(N_jump[i] - N_jump[i+3]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+                        elif j != i:
+                            for k in range(N_jump[i]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+                    else:
+                        last_pos = reset_paths[j][np.shape(reset_paths[j])[0]-1,0:3]
+                        if j == i:
+                            for k in range(N_jump[i+3] - N_jump[i]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+                        elif j != i+3:
+                            for k in range(N_jump[i+3]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+            #Combine All the Paths
+            for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
+                                                        np.append(rot_paths[i],
+                                                            np.append(prep_paths2[i],
+                                                                np.append(lin_paths[i],reset_paths[i],0),0),0),0))
+        else:
+            #Combine All the Paths
+            for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
                                                         np.append(rot_paths[i],
                                                             np.append(prep_paths2[i],lin_paths[i],0),0),0))
+        print(self.moveSteps)
+        
 
             
 class leg:
