@@ -43,12 +43,12 @@ class guardian:
             vals[i] = self.legs[i].nextPos()
             vals[i+3] = self.legs[i+3].nextPos()
             if SERVOS_CONNECTED:
-                kit1.servo[3*i].angle = 90+self.legs[i].theta[self.legs[i].currentPos,0]
-                kit2.servo[3*i].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,0]
-                kit1.servo[3*i+1].angle = 90+self.legs[i].theta[self.legs[i].currentPos,1]
-                kit2.servo[3*i+1].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,1]
-                kit1.servo[3*i+2].angle = 90+self.legs[i].theta[self.legs[i].currentPos,2]
-                kit2.servo[3*i+2].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,2]
+                kit1.servo[3*i].angle = 90+self.legs[i].theta[self.legs[i].currentPos,0]*180/np.pi
+                kit2.servo[3*i].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,0]*180/np.pi
+                kit1.servo[3*i+1].angle = 90+self.legs[i].theta[self.legs[i].currentPos,1]*180/np.pi
+                kit2.servo[3*i+1].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,1]*180/np.pi
+                kit1.servo[3*i+2].angle = 90+self.legs[i].theta[self.legs[i].currentPos,2]*180/np.pi
+                kit2.servo[3*i+2].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,2]*180/np.pi
             
         if -1 not in vals:
             if self.legs[0].currentPos > self.moveSteps[0]\
