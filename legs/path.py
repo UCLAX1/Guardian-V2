@@ -154,6 +154,6 @@ path_CCW = np.array([[0.1,0,-0.17],
 ##-----------MAIN-----------##
 if __name__ == '__main__' and legs.SIMULATION:
 	guardian = legs.guardian()
-	guardian.moveTo(-0.75, -0.75, True)
+	guardian.calculateTrajectory(-0.75, -0.75, True)
 	sim = simulation(guardian, 80, 50)
 	sim.show(); del sim #Nothing after this line will run until plot window is closed

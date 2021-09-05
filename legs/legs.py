@@ -1,14 +1,14 @@
 import numpy as np
+import time
 import path
 
 SIMULATION = True
 SERVOS_CONNECTED = True
+kit1, kit2 = None, None
 try:
     from adafruit_servokit import ServoKit
     kit1 = ServoKit(channels=16,address=0x40)
     kit2 = ServoKit(channels=16,address=0x41)
-    hat_map = [1,1,1,2,2,2]
-    pin_map =[[0,1,2],[3,4,5],[6,7,8],[7,8,9],[10,11,12],[13,14,15]]
 except:
     print("Servos Disabled")
     SERVOS_CONNECTED = False
@@ -23,7 +23,7 @@ class guardian:
 				                                            [0.07755,0,0],
 				                                            [0.14006,0,0]])
         self.pathOffsets = pathOffsets
-        self.moveSteps = [0,0,0,0]
+        self.moveSteps = [0,0,0,0,0]
         self.cur_pos = 0
         for i in range(6):
             self.legs.append(leg(i+1,self.DH))
@@ -37,18 +37,18 @@ class guardian:
         return self.legs
 
     def nextPos (self):
-        global kit1, kit2, hat_map, pin_map, SERVOS_CONNECTED
+        global kit1, kit2, SERVOS_CONNECTED
         vals = [0,0,0,0,0,0]
         for i in range(3): 
             vals[i] = self.legs[i].nextPos()
             vals[i+3] = self.legs[i+3].nextPos()
             if SERVOS_CONNECTED:
-                kit1.servo[3*i].angle = self.legs[i].theta[self.legs[i].currentPos,0]
-                kit2.servo[3*i].angle = self.legs[i+3].theta[self.legs[i+3].currentPos,0]
-                kit1.servo[3*i+1].angle = self.legs[i].theta[self.legs[i].currentPos,1]
-                kit2.servo[3*i+1].angle = self.legs[i+3].theta[self.legs[i+3].currentPos,1]
-                kit1.servo[3*i+2].angle = self.legs[i].theta[self.legs[i].currentPos,2]
-                kit2.servo[3*i+2].angle = self.legs[i+3].theta[self.legs[i+3].currentPos,2]
+                kit1.servo[3*i].angle = 90+self.legs[i].theta[self.legs[i].currentPos,0]
+                kit2.servo[3*i].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,0]
+                kit1.servo[3*i+1].angle = 90+self.legs[i].theta[self.legs[i].currentPos,1]
+                kit2.servo[3*i+1].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,1]
+                kit1.servo[3*i+2].angle = 90+self.legs[i].theta[self.legs[i].currentPos,2]
+                kit2.servo[3*i+2].angle = 90+self.legs[i+3].theta[self.legs[i+3].currentPos,2]
             
         if -1 not in vals:
             if self.legs[0].currentPos > self.moveSteps[0]\
@@ -59,7 +59,23 @@ class guardian:
                     self.zeta[0] += self.dx*np.cos(self.zeta[2])
                     self.zeta[1] += self.dx*np.sin(self.zeta[2])
 
+    def resetLegs (self):
+        global kit1, kit2, SERVOS_CONNECTED
+        if SERVOS_CONNECTED:
+            for i in range(16):
+                kit1.servo[i].angle = 90
+                kit2.servo[i].angle = 90
+            return 1
+        return -1
+
     def moveTo (self, x, y, RESET_AFTER = False):
+        #self.totalPathLength = self.moveSteps[0] + self.moveSteps[1] + self.moveSteps[2] + self.moveSteps[3] 
+        self.calculateTrajectory(x, y, RESET_AFTER)
+        for i in range(self.totalPathLength):
+            time.sleep(0.08)
+            self.nextPos()
+
+    def calculateTrajectory (self, x, y, RESET_AFTER = False):
         if x == 0 and y == 0: return
         delays = [0,7,14,0,14,7]
         prep_paths1 = {
@@ -271,6 +287,7 @@ class guardian:
                         elif j != i+3:
                             for k in range(N_jump[i+3]):
                                 reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+            self.moveSteps[4] = np.sum([np.max([N_jump[0],N_jump[3]]),np.max([N_jump[1],N_jump[4]]),np.max([N_jump[2],N_jump[5]])])
             #Combine All the Paths
             for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
                                                         np.append(rot_paths[i],
@@ -281,7 +298,8 @@ class guardian:
             for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
                                                         np.append(rot_paths[i],
                                                             np.append(prep_paths2[i],lin_paths[i],0),0),0))
-        print(self.moveSteps)
+        #print(self.moveSteps)
+        self.totalPathLength = self.legs[0].pathLength
         
 
             
