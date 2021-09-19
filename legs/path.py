@@ -1,6 +1,6 @@
 import numpy as np
-#import matplotlib.pyplot as plt
-#from matplotlib.animation import FuncAnimation
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import legs
 import time
 
@@ -204,10 +204,10 @@ path_CCW = np.array([[0.100000, 0.000000, -0.170000],
 ##-----------MAIN-----------##
 if __name__ == '__main__' and legs.SIMULATION:
 	guardian = legs.guardian()
-	guardian.moveTo(-0.75, -0.75, True)
+	guardian.calculateMoveTrajectory(-1, 0, True)
 
-	while True:
-	    guardian.nextPos()
-	    time.sleep(0.01)
-#	sim = simulation(guardian, 80, 50)
-#	sim.show(); del sim #Nothing after this line will run until plot window is closed
+	#while True:
+	#    guardian.nextPos()
+	#    time.sleep(0.01)
+	sim = simulation(guardian, 10, 50)
+	sim.show(); del sim #Nothing after this line will run until plot window is closed

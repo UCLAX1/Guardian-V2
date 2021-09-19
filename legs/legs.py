@@ -1,4 +1,5 @@
 import numpy as np
+import time
 import path
 
 SIMULATION = True
@@ -7,7 +8,7 @@ kit1, kit2 = None, None
 try:
     from adafruit_servokit import ServoKit
 except:
-    print("Library Failed to load")
+    print("Servo Library Failed to load")
 try:
     kit1 = ServoKit(channels=16,address=0x40)
     kit2 = ServoKit(channels=16,address=0x41)
@@ -19,9 +20,9 @@ except:
     
 
 class guardian:
-    def __init__ (self, zeta = [0,0,0], DH = np.array([]), pathOffsets = [0.08,-0.02]):
+    def __init__ (self, zeta = [0,0,0], DH = np.array([]), pathOffsets = [0.08,-0.02], ts=0.01):
         self.legs = []
-        self.zeta = zeta
+        self.zeta = zeta    
         self.DH = DH if np.shape(DH)[0] != 0 else np.array([[0.1009,0,0],
 				                                            [0.03963,-np.pi/2, 0],
 				                                            [0.07755,0,0],
@@ -29,6 +30,8 @@ class guardian:
         self.pathOffsets = pathOffsets
         self.moveSteps = [0,0,0,0]
         self.cur_pos = 0
+        self.ts = ts
+        self.setTurretThrottle(0)
         for i in range(6):
             self.legs.append(leg(i+1,self.DH))
             #self.legs.append(leg(i+1,self.DH))
@@ -39,6 +42,26 @@ class guardian:
 
     def __call__ (self):
         return self.legs
+
+    def resetLegs (self):
+        global kit1, kit2, SERVOS_CONNECTED
+        if SERVOS_CONNECTED:
+            for i in range(16):
+                kit1.servo[i].angle = 90
+                kit2.servo[i].angle = 90
+            return 1
+        return -1
+
+    def setTurretThrottle(self, val):
+        if val < -1 or val > 1:
+            print("Turret Throttle must be between -1 and 1.")
+            return -1
+        global kit2, SERVOS_CONNECTED
+        if SERVOS_CONNECTED:
+            self.turretThrottle = val
+            kit2.continuous_servo[9].throttle = val
+            return 1
+        return -1
 
     def nextPos (self):
         global kit1, kit2, SERVOS_CONNECTED
@@ -64,7 +87,156 @@ class guardian:
                     self.zeta[1] += self.dx*np.sin(self.zeta[2])
 
     def moveTo (self, x, y, RESET_AFTER = False):
-        if x == 0 and y == 0: return
+        self.calculateMoveTrajectory(x, y, RESET_AFTER)
+        for i in range(self.totalPathLength):
+            time.sleep(self.ts)
+            self.nextPos()
+
+    def rotate (self, phi, RESET_AFTER = False):
+        self.calculateRotateTrajectory(phi, RESET_AFTER)
+        for i in range(self.totalPathLength):
+            time.sleep(self.ts)
+            self.nextPos()
+
+    def calculateRotateTrajectory (self, phi, RESET_AFTER = False):
+        if phi == 0: return
+        delays = [0,16,32,0,16,32]
+        self.moveSteps = [0,0,0,0,0]
+        prep_paths1 = {
+            0: np.empty((0,3)),
+            1: np.empty((0,3)),
+            2: np.empty((0,3)),
+            3: np.empty((0,3)),
+            4: np.empty((0,3)),
+            5: np.empty((0,3)),
+        }
+        rot_paths = {
+            0: np.empty((0,3)),
+            1: np.empty((0,3)),
+            2: np.empty((0,3)),
+            3: np.empty((0,3)),
+            4: np.empty((0,3)),
+            5: np.empty((0,3)),
+        }
+        #Rotate
+        self.dphi = -(np.arctan2(path.path_CCW[0,0],path.path_CCW[0,1]+self.DH[0,0]) - np.arctan2(path.path_CCW[1,0],path.path_CCW[1,1]+self.DH[0,0]))
+        N = int(np.ceil(phi/self.dphi))
+        if N != 0:
+            if N > 0:
+                rotation_path = np.copy(path.path_CCW)
+            else: 
+                rotation_path = np.copy(path.reflect(path.path_CCW,1))
+                self.dphi = -self.dphi
+                N = -N
+            for i in range(6):
+                delayed_path = path.delay(rotation_path,delays[i])
+                pathLength = np.shape(delayed_path)[0]
+                temp_path = np.array([delayed_path[0,0:3]])
+                for j in range(N):
+                    temp_path = np.append(temp_path, [delayed_path[(j+1)%pathLength,0:3]], 0)
+                rot_paths[i] = temp_path
+        self.moveSteps[1] = N
+        #Prep Legs For Rotation
+        if self.moveSteps[1] > 0:
+            temp_path = {
+                0: path.path_Jump(self.legs[0].path[self.legs[0].currentPos,0:3],rot_paths[0][0,0:3]),
+                1: path.path_Jump(self.legs[1].path[self.legs[1].currentPos,0:3],rot_paths[1][0,0:3]),
+                2: path.path_Jump(self.legs[2].path[self.legs[2].currentPos,0:3],rot_paths[2][0,0:3]),
+                3: path.path_Jump(self.legs[3].path[self.legs[3].currentPos,0:3],rot_paths[3][0,0:3]),
+                4: path.path_Jump(self.legs[4].path[self.legs[4].currentPos,0:3],rot_paths[4][0,0:3]),
+                5: path.path_Jump(self.legs[5].path[self.legs[5].currentPos,0:3],rot_paths[5][0,0:3])
+            }
+            self.moveSteps[0] = 1
+            N_jump = [np.shape(temp_path[0])[0],
+                      np.shape(temp_path[1])[0],
+                      np.shape(temp_path[2])[0],
+                      np.shape(temp_path[3])[0],
+                      np.shape(temp_path[4])[0],
+                      np.shape(temp_path[5])[0]]
+            for i in range(6):
+                prep_paths1[i] = np.append(prep_paths1[i],[self.legs[i].path[self.legs[i].currentPos,0:3]],0)
+            for i in range(3):
+                prep_paths1[i] = np.append(prep_paths1[i],temp_path[i],0)
+                prep_paths1[i+3] = np.append(prep_paths1[i+3],temp_path[i+3],0)
+                for j in range(6):
+                    if N_jump[i] > N_jump[i+3]:
+                        last_pos = prep_paths1[j][np.shape(prep_paths1[j])[0]-1,0:3]
+                        if j == i+3:
+                            for k in range(N_jump[i] - N_jump[i+3]):
+                                prep_paths1[j] = np.append(prep_paths1[j],[last_pos],0)
+                        elif j != i:
+                            for k in range(N_jump[i]):
+                                prep_paths1[j] = np.append(prep_paths1[j],[last_pos],0)
+                    else:
+                        last_pos = prep_paths1[j][np.shape(prep_paths1[j])[0]-1,0:3]
+                        if j == i:
+                            for k in range(N_jump[i+3] - N_jump[i]):
+                                prep_paths1[j] = np.append(prep_paths1[j],[last_pos],0)
+                        elif j != i+3:
+                            for k in range(N_jump[i+3]):
+                                prep_paths1[j] = np.append(prep_paths1[j],[last_pos],0)
+            self.moveSteps[0] += np.sum([np.max([N_jump[0],N_jump[3]]),np.max([N_jump[1],N_jump[4]]),np.max([N_jump[2],N_jump[5]])])
+        
+        #Reset Legs After
+        if RESET_AFTER:
+            reset_paths = {
+                0: np.empty((0,3)),
+                1: np.empty((0,3)),
+                2: np.empty((0,3)),
+                3: np.empty((0,3)),
+                4: np.empty((0,3)),
+                5: np.empty((0,3)),
+            }   
+            temp_path = {
+                0: path.path_Jump(rot_paths[0][self.moveSteps[1],0:3],[0.1,0,-0.17]),
+                1: path.path_Jump(rot_paths[1][self.moveSteps[1],0:3],[0.1,0,-0.17]),
+                2: path.path_Jump(rot_paths[2][self.moveSteps[1],0:3],[0.1,0,-0.17]),
+                3: path.path_Jump(rot_paths[3][self.moveSteps[1],0:3],[0.1,0,-0.17]),
+                4: path.path_Jump(rot_paths[4][self.moveSteps[1],0:3],[0.1,0,-0.17]),
+                5: path.path_Jump(rot_paths[5][self.moveSteps[1],0:3],[0.1,0,-0.17])
+            }
+            for i in range(6):
+                reset_paths[i] = np.append(reset_paths[i],[rot_paths[i][self.moveSteps[1],0:3]],0)
+
+            N_jump = [np.shape(temp_path[0])[0],
+                      np.shape(temp_path[1])[0],
+                      np.shape(temp_path[2])[0],
+                      np.shape(temp_path[3])[0],
+                      np.shape(temp_path[4])[0],
+                      np.shape(temp_path[5])[0]]
+        
+            for i in range(3):
+                reset_paths[i] = np.append(reset_paths[i],temp_path[i],0)
+                reset_paths[i+3] = np.append(reset_paths[i+3],temp_path[i+3],0)
+                for j in range(6):
+                    if N_jump[i] > N_jump[i+3]:
+                        last_pos = reset_paths[j][np.shape(reset_paths[j])[0]-1,0:3]
+                        if j == i+3:
+                            for k in range(N_jump[i] - N_jump[i+3]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+                        elif j != i:
+                            for k in range(N_jump[i]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+                    else:
+                        last_pos = reset_paths[j][np.shape(reset_paths[j])[0]-1,0:3]
+                        if j == i:
+                            for k in range(N_jump[i+3] - N_jump[i]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+                        elif j != i+3:
+                            for k in range(N_jump[i+3]):
+                                reset_paths[j] = np.append(reset_paths[j],[last_pos],0)
+            self.moveSteps[4] = np.sum([np.max([N_jump[0],N_jump[3]]),np.max([N_jump[1],N_jump[4]]),np.max([N_jump[2],N_jump[5]])])
+            #Combine All the Paths
+            for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
+                                                        np.append(rot_paths[i], reset_paths[i],0),0))
+        else:
+            #Combine All the Paths
+            for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i], rot_paths[i],0))
+        #print(self.moveSteps)
+        self.totalPathLength = self.legs[0].pathLength
+
+
+    def calculateMoveTrajectory (self, x, y, RESET_AFTER = False):
         delays = [0,16,32,0,16,32]
         prep_paths1 = {
             0: np.empty((0,3)),
@@ -285,8 +457,9 @@ class guardian:
             for i in range(6): self.legs[i].changePath(np.append(prep_paths1[i],
                                                         np.append(rot_paths[i],
                                                             np.append(prep_paths2[i],lin_paths[i],0),0),0))
-        print(self.moveSteps)
-        
+        #print(self.moveSteps)
+        self.totalPathLength = self.legs[0].pathLength
+
 
             
 class leg:
