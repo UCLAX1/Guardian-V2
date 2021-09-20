@@ -46,7 +46,7 @@ class guardian:
     def resetLegs (self):
         global kit1, kit2, SERVOS_CONNECTED
         if SERVOS_CONNECTED:
-            for i in range(16):
+            for i in range(9):
                 kit1.servo[i].angle = 90
                 kit2.servo[i].angle = 90
             return 1
